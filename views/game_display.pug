@@ -1,0 +1,16 @@
+extends layout
+
+append head
+  //- add page specific styles by appending to the head
+  link(rel="stylesheet" href="/stylesheets/index.css")
+  //- add page specific js
+  script(src="/javascripts/index.js" type="module" defer)
+
+block content
+    h1 Game Data Will Be Displayed Here
+    button(type='button' value=gameKey name="get_data" id='get_data_btn') Get Game Data
+    button(type='button' value=gameKey name="stop_data" id='stop_data_btn') Stop Getting Data
+    form(action=`/game_collection/${gameKey}` method="POST")
+        input(type='hidden' name='_csrf' value=csrfToken)
+        input(type='text' name='collection_key' placeholder='Enter your collection key here' required)
+        input(type="submit" value='Save Data To Your Collection')
