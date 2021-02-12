@@ -8,4 +8,15 @@ append head
 
 block content
   h1= title
-  p Welcome to your Project Skeleton
+  form(action='/display_game' method='POST')
+    input(type='hidden' name='_csrf' value=csrfToken)
+    input(type='text' name='gameKey' placeholder="Enter the same key you entered in TTS" required)
+    input(type='submit' value='Get Game Data')
+  form(action='/game_collection' method="POST")
+    input(type='hidden' name='_csrf' value=csrfToken)
+    input(type='text' name='collName' placeholder="Enter a name for your collection of games" required)
+    input(type='submit' value='Get Your Collection Key')
+  form(action='/game_collection/game_data' method="POST")
+    input(type='hidden' name='_csrf' value=csrfToken)
+    input(type='text' name='collKey' placeholder="Enter Your Collection Key" required)
+    input(type='submit' value='Get Your Collection Data')
