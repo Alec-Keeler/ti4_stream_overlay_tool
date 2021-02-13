@@ -16,4 +16,10 @@ router.post('/game_data', asyncHandler(async(req, res) => {
     res.render('data_display', {})
 }))
 
+router.post('/:key', asyncHandler(async(req, res) => {
+    //this route will save all the data for the game to the database
+    //will probably need to set up an api route that collects the data before
+    //sending it to this route
+}))
+
 module.exports = router;
