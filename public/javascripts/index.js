@@ -1,14 +1,17 @@
 import { initExtract, standardUpdate, testPrint } from "./extractors.js"
+import { createScoreboard, updateScoreBoard } from "./scoreboard-dom.js"
 //variables for testing:
 let loop;
-let key;
 let count = 1
 //variables for testing ^^
+let key;
 
+//This function is called every time interval to update the data points
+//This will also call functions to update html elements
 const loopFetch = async () => {
     const somethingElse = await fetch(`http://ti4-game-data.appspot.com/data?key=${key}`)
         .then(function (response) {
-            console.log(response);
+            // console.log(response);
             if (response.status !== 200) {
                 console.log("Looks like there was a problem.  Status Code: " + response.status);
                 return;
@@ -20,11 +23,14 @@ const loopFetch = async () => {
                 // console.log(count)
                 // count++;
                 standardUpdate(data);
+                updateScoreBoard(data);
                 testPrint();
             });
         });
 };
 
+//This function begins the loop and calls the initial data extractor function
+//This will also call functions to create html elements
 window.addEventListener('DOMContentLoaded', event => {
     const getDataBtn = document.getElementById('get_data_btn');
     getDataBtn.addEventListener('click', async(e) => {
@@ -38,8 +44,9 @@ window.addEventListener('DOMContentLoaded', event => {
                     return;
                 };
                 response.json().then(function(data) {
+                    createScoreboard(data);
                     initExtract(data)
-                    loop = setInterval(loopFetch, 1000);
+                    loop = setInterval(loopFetch, 3000);
                 });
             });
     });
