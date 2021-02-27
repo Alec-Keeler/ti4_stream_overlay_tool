@@ -1,5 +1,5 @@
 import { initExtract, standardUpdate, testPrint } from "./extractors.js"
-import { createScoreboard } from "./create-elements.js"
+import { createScoreboard, updateScoreBoard } from "./scoreboard-dom.js"
 //variables for testing:
 let loop;
 let count = 1
@@ -23,6 +23,7 @@ const loopFetch = async () => {
                 // console.log(count)
                 // count++;
                 standardUpdate(data);
+                updateScoreBoard(data);
                 testPrint();
             });
         });
@@ -45,7 +46,7 @@ window.addEventListener('DOMContentLoaded', event => {
                 response.json().then(function(data) {
                     createScoreboard(data);
                     initExtract(data)
-                    loop = setInterval(loopFetch, 1000);
+                    loop = setInterval(loopFetch, 3000);
                 });
             });
     });
