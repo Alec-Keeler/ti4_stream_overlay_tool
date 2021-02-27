@@ -7,10 +7,31 @@ append head
   script(src="/javascripts/index.js" type="module" defer)
 
 block content
-    h1 Game Data Will Be Displayed Here
+  h1 Game Data Will Be Displayed Here
+  div#game-button-container
     button(type='button' value=gameKey name="get_data" id='get_data_btn') Get Game Data
     button(type='button' value=gameKey name="stop_data" id='stop_data_btn') Stop Getting Data
     form(action=`/game_collection/${gameKey}` method="POST")
-        input(type='hidden' name='_csrf' value=csrfToken)
-        input(type='text' name='collection_key' placeholder='Enter your collection key here' required)
-        input(type="submit" value='Save Data To Your Collection')
+      input(type='hidden' name='_csrf' value=csrfToken)
+      input(type='text' name='collection_key' placeholder='Enter your collection key here' required)
+      input(type="submit" value='Save Data To Your Collection')
+  div#main-display-container
+    div#score-board-container
+      p Scoreboard
+      div#player-score-details-White
+      div#player-score-details-Blue
+      div#player-score-details-Purple
+      div#player-score-details-Yellow
+      div#player-score-details-Red
+      div#player-score-details-Green
+    div#available-points
+      p Available Points
+    div#resources-overview
+      p Resources Overview
+    div#rotating-tech
+      p Rotating Tech
+    div#rotating-resources
+      p Rotating Resources
+    div#rotating-laws
+      p Rotating Laws
+    

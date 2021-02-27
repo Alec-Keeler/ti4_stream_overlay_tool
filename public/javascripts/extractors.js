@@ -665,5 +665,5 @@ export function standardUpdate(data) {
 }
 
 export function testPrint() {
-    console.log(whiteStratCard + "  " + greenStratCard)
+    console.log("Site Is Live" + whitePlayerName)
 }
