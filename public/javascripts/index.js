@@ -34,7 +34,7 @@ const loopFetch = async () => {
 window.addEventListener('DOMContentLoaded', event => {
     const getDataBtn = document.getElementById('get_data_btn');
     getDataBtn.addEventListener('click', async(e) => {
-        console.log(e.target.value);
+        // console.log(e.target.value);
         key = e.target.value;
 
         const startFetch = await fetch(`http://ti4-game-data.appspot.com/data?key=${key}`)
