@@ -1,11 +1,12 @@
-const scoreboard = document.getElementById('score-board-container');
+// const scoreboard = document.getElementById('score-board-container');
 let currentTurn = null;
+let currRound = 1;
 // need to track round so i can remove passed class when a new round starts
 
 function getPlayerInfo(data) {
     let playerInfo = [];
     let playerData = data.players;
-    console.log(playerData)
+    console.log(data)
 
     for (let i = 0; i < playerData.length; i++) {
         let color = playerData[i].color
@@ -18,7 +19,6 @@ function getPlayerInfo(data) {
     }
     return playerInfo;
 };
-
 
 export function createScoreboard(data) {
     let playerInfo = getPlayerInfo(data)
@@ -78,6 +78,8 @@ export function updateScoreBoard(data) {
     let playerTurn = data.turn;
     console.log(playerTurn)
     setTurnClass(playerTurn);
+    let roundEl = document.getElementById('round')
+    roundEl.innerHTML = `Round: ${data.round}`
 
     for (let i = 0; i < playerInfo.length; i++) {
         let color = playerInfo[i][0];

@@ -1,36 +1,85 @@
+.border {
+    border: 1px solid black;
+}
+
 .passed {
-    border: 5px solid red;
+    /* border: 5px solid red; */
+    background: #010814;
 }
 
 .active-turn {
-    border: 5px solid green;
+    /* border: 5px solid green; */
+    background: #193a7d;
 }
 
 /* p {
     margin: 0px;
+    6EC1E4
 }; */
 
+#scoreboard-container {
+    background: #061738;
+    width: 750px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-#score-board-container {
-    /* background: blue; */
+#round {
+    font-size: 25px;
+    color: white;
+    text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
+}
+
+#player-score-container {
     display: grid;
     width: 750px;
-    height: 150px;
+    height: 130px;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-auto-rows: minmax(75px, 75px);
+    grid-auto-rows: minmax(65px, 65px);
     border: 1px solid black;
     border-radius: 3px;
 }
 
-#score-board-container div {
+#player-score-container > div {
     display: grid;
     /* border: 1px solid black; */
     grid-template-columns: 1fr 0.25fr 1fr;
 }
 
-#score-board-container div div {
+#player-score-container div div {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+}
+
+.white {
+    color: white;
+    text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
+}
+
+.blue {
+    color: #6EC2E4;
+    text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
+}
+
+.purple {
+    color: mediumorchid;
+    text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
+}
+
+.yellow {
+    color: #cdd252;
+    text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
+}
+
+.red {
+    color: red;
+    text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
+}
+
+.green {
+    color: #4ebf54;
+    text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
 }
