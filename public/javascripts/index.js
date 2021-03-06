@@ -4,28 +4,41 @@ import { createScoreboard, updateScoreBoard } from "./scoreboard-dom.js"
 let loop;
 let count = 1
 //variables for testing ^^
+let savedData = null;
 let key;
 
 //This function is called every time interval to update the data points
 //This will also call functions to update html elements
 const loopFetch = async () => {
+    // const somethingElse = await fetch(`http://ti4-game-data.appspot.com/data?key=${key}`, {
+    //     mode: 'no-cors',
+    //     headers: {
+    //         'If-Modified-Since': 'test'
+    //     }
+    // })
     const somethingElse = await fetch(`http://ti4-game-data.appspot.com/data?key=${key}`)
         .then(function (response) {
-            // console.log(response);
-            if (response.status !== 200) {
+            console.log(response.status);
+
+            if (response.status === 200) {
+                response.json().then(function (data) {
+                    //call functions to parse data and set variables/innerHTML here
+    
+                    //for testing the loop:
+                    // console.log(count)
+                    // count++;
+                    savedData = data;
+                    standardUpdate(data);
+                    updateScoreBoard(data);
+                    testPrint();
+                });
+            // } else if (response.status === 304) {
+
+            // }
+            } else if (response.status !== 200) {
                 console.log("Looks like there was a problem.  Status Code: " + response.status);
                 return;
             };
-            response.json().then(function (data) {
-                //call functions to parse data and set variables/innerHTML here
-
-                //for testing the loop:
-                // console.log(count)
-                // count++;
-                standardUpdate(data);
-                updateScoreBoard(data);
-                testPrint();
-            });
         });
 };
 

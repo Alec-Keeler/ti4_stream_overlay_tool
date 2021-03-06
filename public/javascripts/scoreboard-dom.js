@@ -76,7 +76,7 @@ function setTurnClass(currentPlayer) {
 export function updateScoreBoard(data) {
     let playerInfo = getPlayerInfo(data);
     let playerTurn = data.turn;
-    console.log(playerTurn)
+    // console.log(playerTurn)
     setTurnClass(playerTurn);
     let roundEl = document.getElementById('round')
     roundEl.innerHTML = `Round: ${data.round}`
