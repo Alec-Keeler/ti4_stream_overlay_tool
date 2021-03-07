@@ -1,5 +1,6 @@
 import { initExtract, standardUpdate, testPrint } from "./extractors.js"
 import { createScoreboard, updateScoreBoard } from "./scoreboard-dom.js"
+import { createTechOverview } from "./tech-overview-dom.js"
 //variables for testing:
 let loop;
 let count = 1
@@ -13,21 +14,18 @@ const loopFetch = async () => {
     // const somethingElse = await fetch(`http://ti4-game-data.appspot.com/data?key=${key}`, {
     //     mode: 'no-cors',
     //     headers: {
-    //         'If-Modified-Since': 'test'
+    //         'If-Modified-Since': 10
     //     }
     // })
     const somethingElse = await fetch(`http://ti4-game-data.appspot.com/data?key=${key}`)
         .then(function (response) {
-            console.log(response.status);
+            console.log(response);
 
             if (response.status === 200) {
                 response.json().then(function (data) {
                     //call functions to parse data and set variables/innerHTML here
-    
-                    //for testing the loop:
-                    // console.log(count)
-                    // count++;
                     savedData = data;
+                    createTechOverview(data);
                     standardUpdate(data);
                     updateScoreBoard(data);
                     testPrint();
@@ -35,7 +33,7 @@ const loopFetch = async () => {
             // } else if (response.status === 304) {
 
             // }
-            } else if (response.status !== 200) {
+            } else {
                 console.log("Looks like there was a problem.  Status Code: " + response.status);
                 return;
             };
