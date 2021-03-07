@@ -17,7 +17,7 @@ const loopFetch = async () => {
     //         'If-Modified-Since': 10
     //     }
     // })
-    const somethingElse = await fetch(`http://ti4-game-data.appspot.com/data?key=${key}`)
+    const somethingElse = await fetch(`https://ti4-game-data.appspot.com/data?key=${key}`)
         .then(function (response) {
             console.log(response);
 
@@ -47,7 +47,7 @@ window.addEventListener('DOMContentLoaded', event => {
         // console.log(e.target.value);
         key = e.target.value;
 
-        const startFetch = await fetch(`http://ti4-game-data.appspot.com/data?key=${key}`)
+        const startFetch = await fetch(`https://ti4-game-data.appspot.com/data?key=${key}`)
             .then(function(response) {
                 if (response.status !== 200) {
                     console.log("Looks like there was a problem.  Status Code: " + response.status);
