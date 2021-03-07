@@ -11,7 +11,8 @@ const instructions = [
   "On this page you'll see a number of blank components.  Click Get Game Data to begin populating the components with data!",
   "Use OBS (or any other streaming software) to capture each component you wish to display.",
   "When your game is over, click Stop Getting Data and type !gamedata into the TTS chat box to end data collection.",
-  "Please note that this tool is still in development.  At the moment this tool will not work properly unless all 6 players are using the base colors (White, Blue, Purple, Yellow, Red, Green)"
+  "Please note that this tool is still in development.  At the moment this tool will not work properly unless all 6 players are using the base colors (White, Blue, Purple, Yellow, Red, Green)",
+  "On the scoreboard: A player's score cell will become a brighter blue when it's their turn and a gray-blue when they have passed"
 ]
 
 /* GET home page. */
