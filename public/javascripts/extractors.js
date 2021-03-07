@@ -664,6 +664,6 @@ export function standardUpdate(data) {
     };
 }
 
-export function testPrint() {
-    console.log("Site Is Live" + whitePlayerName)
-}
+// export function testPrint() {
+//     console.log("Site Is Live" + whitePlayerName)
+// }

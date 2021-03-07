@@ -42,6 +42,11 @@ export function createTechOverview(data) {
 
 export function updateTechOverview(data) {
     let allTechs = extractPlayerTechs(data);
-    //call the purge function and then basically do al the create steps I think
-    
+    //call the purge function and then basically do all the create steps I think
+    let colors = ["White", "Blue", "Purple", "Yellow", "Red", "Green"];
+    for (let i = 0; i < colors.length; i++) {
+        const color = colors[i];
+        purgeTechElements(color);
+    }
+    console.log("done bitchessss")
 }

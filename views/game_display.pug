@@ -4,6 +4,7 @@ append head
   //- add page specific styles by appending to the head
   link(rel="stylesheet" href="/stylesheets/index.css")
   //- add page specific js
+
   script(src="/javascripts/index.js" type="module" defer)
 
 block content
@@ -11,10 +12,10 @@ block content
   div#game-button-container
     button(type='button' value=gameKey name="get_data" id='get_data_btn') Get Game Data
     button(type='button' value=gameKey name="stop_data" id='stop_data_btn') Stop Getting Data
-    form(action=`/game_collection/${gameKey}` method="POST")
-      input(type='hidden' name='_csrf' value=csrfToken)
-      input(type='text' name='collection_key' placeholder='Enter your collection key here' required)
-      input(type="submit" value='Save Data To Your Collection')
+    //- form(action=`/game_collection/${gameKey}` method="POST")
+    //-   input(type='hidden' name='_csrf' value=csrfToken)
+    //-   input(type='text' name='collection_key' placeholder='Enter your collection key here' required)
+    //-   input(type="submit" value='Save Data To Your Collection')
   div#main-display-container
     div#scoreboard-container
       div#round Round 0
@@ -37,6 +38,8 @@ block content
       div#player-techs-Green
     div#resources-overview
       p Resources Overview
+    div#law-overview
+      p Law Overview
     div#rotating-tech
       p Rotating Tech
     div#rotating-resources

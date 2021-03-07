@@ -1,6 +1,6 @@
-import { initExtract, standardUpdate, testPrint } from "./extractors.js"
+import { initExtract, standardUpdate } from "./extractors.js"
 import { createScoreboard, updateScoreBoard } from "./scoreboard-dom.js"
-import { createTechOverview } from "./tech-overview-dom.js"
+import { createTechOverview, updateTechOverview } from "./tech-overview-dom.js"
 //variables for testing:
 let loop;
 let count = 1
@@ -25,10 +25,9 @@ const loopFetch = async () => {
                 response.json().then(function (data) {
                     //call functions to parse data and set variables/innerHTML here
                     savedData = data;
-                    createTechOverview(data);
                     standardUpdate(data);
+                    // updateTechOverview(data);
                     updateScoreBoard(data);
-                    testPrint();
                 });
             // } else if (response.status === 304) {
 
@@ -55,6 +54,7 @@ window.addEventListener('DOMContentLoaded', event => {
                     return;
                 };
                 response.json().then(function(data) {
+                    // createTechOverview(data);
                     createScoreboard(data);
                     initExtract(data)
                     loop = setInterval(loopFetch, 3000);

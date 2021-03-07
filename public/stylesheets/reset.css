@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'ambroise_firminregular';
+  src: url('ambroise_firmin_regular-webfont.woff2') format('woff2'),
+       url('ambroise_firmin_regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -20,8 +28,16 @@ body, header, nav {
   padding: 0;
   outline: 0;
   font-weight: normal;
+  font-family: ambroise_firminregular;
+}
+button, input {
+  font-family: ambroise_firminregular;
 }
 
 h1 {
   font-size: 2rem;
+}
+
+html, body {
+  height: 100%
 }
