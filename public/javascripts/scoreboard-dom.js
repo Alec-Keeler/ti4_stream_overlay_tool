@@ -1,21 +1,24 @@
-const scoreboard = document.getElementById('score-board-container');
+// const scoreboard = document.getElementById('score-board-container');
+let currentTurn = null;
+let currRound = 1;
+// need to track round so i can remove passed class when a new round starts
 
 function getPlayerInfo(data) {
     let playerInfo = [];
     let playerData = data.players;
-    console.log(playerData)
+    console.log(data)
 
     for (let i = 0; i < playerData.length; i++) {
         let color = playerData[i].color
         let name = playerData[i].steamName
         let stratCards = playerData[i].strategyCards
         let activeStatus = playerData[i].active;
-        let score = playerData[i].score
-        playerInfo.push([color, name, stratCards, activeStatus, score])
+        let score = playerData[i].score;
+        let factionName = playerData[i].factionName;
+        playerInfo.push([color, name, stratCards, activeStatus, score, factionName]);
     }
     return playerInfo;
 };
-
 
 export function createScoreboard(data) {
     let playerInfo = getPlayerInfo(data)
@@ -26,17 +29,18 @@ export function createScoreboard(data) {
         let color = playerInfo[i][0];
         let name = playerInfo[i][1];
         let stratCards = playerInfo[i][2];
+        let factionName = playerInfo[i][5];
         let parentEl = document.getElementById(`player-score-details-${color}`);
-        let nameEl = document.createElement('p');
-        nameEl.innerHTML = name;
+        let nameEl = document.createElement('div');
+        nameEl.innerHTML = `${name} as ${factionName}`;
         nameEl.setAttribute('id', `scoreboard-name-${color}`);
         nameEl.setAttribute('class', `scoreboard-name-el-active`);
-        let initScoreEl = document.createElement('p');
+        let initScoreEl = document.createElement('div');
         initScoreEl.innerHTML = playerInfo[i][4];
         initScoreEl.setAttribute('id', `scoreboard-score-${color}`);
         initScoreEl.setAttribute('class', `scoreboard-score-el`);
         let stratCardOne = stratCards[0];
-        let stratCardEl = document.createElement('p');
+        let stratCardEl = document.createElement('div');
         if (stratCardOne) {
             stratCardEl.innerHTML = stratCardOne;
         } else {
@@ -50,8 +54,32 @@ export function createScoreboard(data) {
     };
 };
 
+function setTurnClass(currentPlayer) {
+    if (currentTurn === null) {
+        let newPlayerEl = document.getElementById(`player-score-details-${currentPlayer}`);
+        newPlayerEl.classList.add('active-turn')
+        currentTurn = currentPlayer;
+    } else if (currentTurn != currentPlayer) {
+        let oldPlayerEl = document.getElementById(`player-score-details-${currentTurn}`);
+        let newPlayerEl = document.getElementById(`player-score-details-${currentPlayer}`);
+        oldPlayerEl.classList.remove('active-turn')
+        newPlayerEl.classList.add('active-turn')
+        currentTurn = currentPlayer;
+    } else if (currentPlayer === "") {
+        let oldPlayerEl = document.getElementById(`player-score-details-${currentTurn}`);
+        oldPlayerEl.classList.remove('active-turn')
+    } else {
+        currentTurn = currentPlayer;
+    }
+}
+
 export function updateScoreBoard(data) {
     let playerInfo = getPlayerInfo(data);
+    let playerTurn = data.turn;
+    // console.log(playerTurn)
+    setTurnClass(playerTurn);
+    let roundEl = document.getElementById('round')
+    roundEl.innerHTML = `Round: ${data.round}`
 
     for (let i = 0; i < playerInfo.length; i++) {
         let color = playerInfo[i][0];
@@ -66,12 +94,11 @@ export function updateScoreBoard(data) {
         } else {
             stratCardEl.innerHTML = "None"
         }
-        let nameEl = document.getElementById(`scoreboard-name-${color}`)
-        console.log(color + ' - ' + activeStatus)
+        let playerScoreEl = document.getElementById(`player-score-details-${color}`)
         if (activeStatus === true) {
-            nameEl.setAttribute('class', `scoreboard-name-el-active`);
+            playerScoreEl.classList.remove('passed');
         } else {
-            nameEl.setAttribute('class', `scoreboard-name-el-passed`);
+            playerScoreEl.classList.add('passed');
         }
     };
 }
