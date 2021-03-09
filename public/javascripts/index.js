@@ -26,7 +26,7 @@ const loopFetch = async () => {
                     //call functions to parse data and set variables/innerHTML here
                     savedData = data;
                     standardUpdate(data);
-                    // updateTechOverview(data);
+                    updateTechOverview(data);
                     updateScoreBoard(data);
                 });
             // } else if (response.status === 304) {
@@ -54,7 +54,7 @@ window.addEventListener('DOMContentLoaded', event => {
                     return;
                 };
                 response.json().then(function(data) {
-                    // createTechOverview(data);
+                    createTechOverview(data);
                     createScoreboard(data);
                     initExtract(data)
                     loop = setInterval(loopFetch, 3000);
