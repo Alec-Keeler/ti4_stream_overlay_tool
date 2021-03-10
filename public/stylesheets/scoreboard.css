@@ -7,21 +7,13 @@
 }
 
 .passed {
-    /* border: 5px solid red; */
-    /* background: #010814; */
-    /* background: #5f6178; */
     background: #414042
 }
 
 .active-turn {
-    /* border: 5px solid green; */
     background: #193a7d;
 }
 
-/* p {
-    margin: 0px;
-    6EC1E4
-}; */
 #game-button-container > button {
     margin-left: 30px;
     margin-right: 30px;

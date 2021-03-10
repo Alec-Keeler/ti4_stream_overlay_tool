@@ -5,8 +5,7 @@ const { csrfProtection, asyncHandler } = require('./utils');
 const instructionHeader = "To Use This Tool:"
 const instructions = [
   "First, click on the Get Your Key button.  This will generate a unique key for your game.",
-  "Next, in Tabletop Simulator's chat box, enter: !gamedata your_key_here 30.",
-  "This will begin exporting data from TTS every 30 seconds.  Note that the number is optional, with a default of 60 seconds.",
+  "Next, in Tabletop Simulator's chat box, enter: !gamedata your_key_here",
   "Next, enter the same key in the field below that says Enter Your Game Key, and click the Get Game Data Button.",
   "On this page you'll see a number of blank components.  Click Get Game Data to begin populating the components with data!",
   "Use OBS (or any other streaming software) to capture each component you wish to display.",

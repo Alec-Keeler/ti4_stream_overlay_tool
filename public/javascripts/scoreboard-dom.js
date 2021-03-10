@@ -14,7 +14,7 @@ function getPlayerInfo(data) {
         let stratCards = playerData[i].strategyCards
         let activeStatus = playerData[i].active;
         let score = playerData[i].score;
-        let factionName = playerData[i].factionName;
+        let factionName = playerData[i].factionShort;
         playerInfo.push([color, name, stratCards, activeStatus, score, factionName]);
     }
     return playerInfo;
