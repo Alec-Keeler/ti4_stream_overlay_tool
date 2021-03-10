@@ -4,7 +4,7 @@ I'll write a readme here
 
 ------
 Change-log
-Update 1 ():
+Update 1 (Mar 09, 2021):
     * Changed all fonts to 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif.
     * Now using shorthand faction names instead of full faction names.
     * Now using a shorter key and added two letter characters to the end of the key string.
