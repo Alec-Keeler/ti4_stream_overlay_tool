@@ -1,0 +1,54 @@
+#tech-overview-container {
+    text-align: center;
+    font-size: 25px;
+    color: white;
+    background: #061738;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    width: 900px;
+    border-radius: 3px;
+}
+
+#tech-overview {
+    display: grid;
+    grid-template-columns: 150px 150px 150px 150px 150px 150px;
+    height: 525px;
+    text-align: center;
+    
+}
+
+.tech-header > h2 {
+    font-size: 30px;
+    height: 75px;
+    text-align: center; 
+    background: #102c63;
+}
+
+.techs {
+    text-align: center;
+    font-size: 18px;
+    border-bottom: solid black 1px;
+}
+
+.tech-White {
+    color: white
+}
+
+.tech-Blue {
+    color: #6EC1E4;
+}
+
+.tech-Purple {
+    color: #9161a8;
+}
+
+.tech-Yellow {
+    color: #ffde17
+}
+
+.tech-Red {
+    color: #e46d72;
+}
+
+.tech-Green {
+    color: #00a14b;
+}

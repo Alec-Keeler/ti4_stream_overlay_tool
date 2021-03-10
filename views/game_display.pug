@@ -3,47 +3,50 @@ extends layout
 append head
   //- add page specific styles by appending to the head
   link(rel="stylesheet" href="/stylesheets/index.css")
+  link(rel='stylesheet' href='/stylesheets/scoreboard.css')
+  link(rel='stylesheet' href='/stylesheets/tech-overview.css')
   //- add page specific js
 
   script(src="/javascripts/index.js" type="module" defer)
 
 block content
-  h1 Game Data Will Be Displayed Here
-  div#game-button-container
-    button(type='button' value=gameKey name="get_data" id='get_data_btn') Get Game Data
-    button(type='button' value=gameKey name="stop_data" id='stop_data_btn') Stop Getting Data
-    //- form(action=`/game_collection/${gameKey}` method="POST")
-    //-   input(type='hidden' name='_csrf' value=csrfToken)
-    //-   input(type='text' name='collection_key' placeholder='Enter your collection key here' required)
-    //-   input(type="submit" value='Save Data To Your Collection')
-  div#main-display-container
-    div#scoreboard-container
-      div#round Round 0
-      div#player-score-container
-        div#player-score-details-White.border.white
-        div#player-score-details-Blue.border.blue
-        div#player-score-details-Purple.border.purple
-        div#player-score-details-Yellow.border.yellow
-        div#player-score-details-Red.border.red
-        div#player-score-details-Green.border.green
-    div#available-points
-      p Available Points
-    div#tech-overview
-      p Tech Overview
-      div#player-techs-White
-      div#player-techs-Blue
-      div#player-techs-Purple
-      div#player-techs-Yellow
-      div#player-techs-Red
-      div#player-techs-Green
-    div#resources-overview
-      p Resources Overview
-    div#law-overview
-      p Law Overview
-    div#rotating-tech
-      p Rotating Tech
-    div#rotating-resources
-      p Rotating Resources
-    div#rotating-laws
-      p Rotating Laws
+  div.main-display
+    h1 Game Data Will Be Displayed Here
+    div#game-button-container
+      button(type='button' value=gameKey name="get_data" id='get_data_btn') Get Game Data
+      button(type='button' value=gameKey name="stop_data" id='stop_data_btn') Stop Getting Data
+      //- form(action=`/game_collection/${gameKey}` method="POST")
+      //-   input(type='hidden' name='_csrf' value=csrfToken)
+      //-   input(type='text' name='collection_key' placeholder='Enter your collection key here' required)
+      //-   input(type="submit" value='Save Data To Your Collection')
+    div#main-display-container
+      div#scoreboard-container
+        div#round Round 0
+        div#player-score-container
+          div#player-score-details-White.border.white
+          div#player-score-details-Blue.border.blue
+          div#player-score-details-Purple.border.purple
+          div#player-score-details-Yellow.border.yellow
+          div#player-score-details-Red.border.red
+          div#player-score-details-Green.border.green
+      div#available-points
+        p Available Points
+      div#tech-overview-container Tech Overview
+        div#tech-overview 
+          div#player-techs-White.tech-header
+          div#player-techs-Blue.tech-header
+          div#player-techs-Purple.tech-header
+          div#player-techs-Yellow.tech-header
+          div#player-techs-Red.tech-header
+          div#player-techs-Green.tech-header
+      div#resources-overview
+        p Resources Overview
+      div#law-overview
+        p Law Overview
+      div#rotating-tech
+        p Rotating Tech
+      div#rotating-resources
+        p Rotating Resources
+      div#rotating-laws
+        p Rotating Laws
     

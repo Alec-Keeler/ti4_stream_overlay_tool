@@ -5,7 +5,7 @@ h1 {
 
 #instruction-container > div, li {
     font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
+    /* font-family: Arial, Helvetica, sans-serif; */
 }
 
 #other-container {
@@ -42,7 +42,7 @@ button {
     display: flex;
     justify-content: space-around;
     padding: 20px;
-    background: gray;
+    background: #6e7785;
     color: #6EC1E4;
 }
 
@@ -50,4 +50,8 @@ button {
     width: 150px;
     height: 35px;
     padding: 8px;
+}
+
+.main-display {
+    background: #6e7785;
 }
