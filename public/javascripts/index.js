@@ -1,6 +1,7 @@
 import { initExtract, standardUpdate } from "./extractors.js"
 import { createScoreboard, updateScoreBoard } from "./scoreboard-dom.js"
 import { createTechOverview, updateTechOverview } from "./tech-overview-dom.js"
+import { updatePointsBoard, initLaw } from "./points-overview-dom.js"
 //variables for testing:
 let loop;
 let count = 1
@@ -25,6 +26,7 @@ const loopFetch = async () => {
                 response.json().then(function (data) {
                     //call functions to parse data and set variables/innerHTML here
                     savedData = data;
+                    updatePointsBoard(data);
                     standardUpdate(data);
                     updateTechOverview(data);
                     updateScoreBoard(data);
@@ -56,7 +58,8 @@ window.addEventListener('DOMContentLoaded', event => {
                 response.json().then(function(data) {
                     createTechOverview(data);
                     createScoreboard(data);
-                    initExtract(data)
+                    initExtract(data);
+                    initLaw(data);
                     loop = setInterval(loopFetch, 3000);
                 });
             });

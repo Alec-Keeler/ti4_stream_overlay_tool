@@ -1,0 +1,51 @@
+#available-points {
+    background: #061738;
+    width: 430px;
+    color: white;
+}
+
+#points-container {
+    /* display: grid; */
+    /* background: #061738; */
+    /* grid-template-columns: 3fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr; */
+    /* grid-template-rows: minmax(30px, 30px); */
+    
+    /* display: flex; */
+    
+}
+
+/* #points-container > td {
+    height: 30px;
+    width: 30px;
+} */
+.public {
+    width: 250px
+}
+td {
+    height: 30px;
+    width: 30px;
+}
+
+.scored-White {
+    background: white
+}
+
+.scored-Blue {
+    background: #6EC1E4;
+}
+
+.scored-Purple {
+    background: #9161a8;
+}
+
+.scored-Yellow {
+    background: #ffde17
+}
+
+.scored-Red {
+    background: #e46d72;
+}
+
+.scored-Green {
+    background: #00a14b;
+}
