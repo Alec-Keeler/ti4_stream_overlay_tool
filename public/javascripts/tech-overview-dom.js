@@ -107,7 +107,6 @@ function purgeTechElements(playerColor) {
 
 export function createTechOverview(data) {
     let allTechs = extractPlayerTechs(data);
-    console.log(allTechs);
     for (let i = 0; i < allTechs.length; i++) {
         let playerColor = allTechs[i][0];
         let playerFaction = allTechs[i][1];
