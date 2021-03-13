@@ -46,6 +46,9 @@ export function createScoreboard(data) {
         } else {
             stratCardEl.innerHTML = "None"
         }
+        // if (usedStratCard[0] === stratCardOne) {
+        //     stratCardEl.classList.add('exhausted')
+        // }
         stratCardEl.setAttribute('id', `scoreboard-strat-${color}`);
         stratCardEl.setAttribute('class', `scoreboard-strat-el`);
         parentEl.appendChild(nameEl);
@@ -55,17 +58,17 @@ export function createScoreboard(data) {
 };
 
 function setTurnClass(currentPlayer) {
-    if (currentTurn === null) {
+    if (currentTurn === null && currentPlayer) {
         let newPlayerEl = document.getElementById(`player-score-details-${currentPlayer}`);
         newPlayerEl.classList.add('active-turn')
         currentTurn = currentPlayer;
-    } else if (currentTurn != currentPlayer) {
+    } else if (currentTurn != currentPlayer && currentPlayer) {
         let oldPlayerEl = document.getElementById(`player-score-details-${currentTurn}`);
         let newPlayerEl = document.getElementById(`player-score-details-${currentPlayer}`);
         oldPlayerEl.classList.remove('active-turn')
         newPlayerEl.classList.add('active-turn')
         currentTurn = currentPlayer;
-    } else if (currentPlayer === "") {
+    } else if (currentPlayer === "" && currentTurn) {
         let oldPlayerEl = document.getElementById(`player-score-details-${currentTurn}`);
         oldPlayerEl.classList.remove('active-turn')
     } else {
@@ -89,6 +92,14 @@ export function updateScoreBoard(data) {
         let scoreEl = document.getElementById(`scoreboard-score-${color}`);
         scoreEl.innerHTML = score;
         let stratCardEl = document.getElementById(`scoreboard-strat-${color}`);
+        let usedStratCard = data.players[i].strategyCardsFaceDown;
+        if (usedStratCard[0] === stratCardEl.innerHTML) {
+            stratCardEl.classList.add('exhausted')
+        } else if (usedStratCard.length === 0) {
+            if (stratCardEl.classList.contains('exhausted')) {
+                stratCardEl.classList.remove('exhausted')
+            }
+        }
         if (stratCards.length) {
             stratCardEl.innerHTML = stratCards[0]
         } else {
