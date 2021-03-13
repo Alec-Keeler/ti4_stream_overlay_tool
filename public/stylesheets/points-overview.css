@@ -12,7 +12,25 @@
     /* grid-template-rows: minmax(30px, 30px); */
     
     /* display: flex; */
-    
+    text-align: left;
+}
+
+#secrets {
+    height: 250px;
+}
+
+#secrets-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.secret-card {
+    width: max-content;
+    background: red;
+    /* margin-left: 3px;
+    margin-right: 3px; */
+    margin: 3px;
+    height: max-content;
 }
 
 /* .scoreboard-score-el {
