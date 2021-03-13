@@ -2,6 +2,7 @@
     background: #061738;
     width: 430px;
     color: white;
+    text-align: center;
 }
 
 #points-container {
@@ -11,13 +12,31 @@
     /* grid-template-rows: minmax(30px, 30px); */
     
     /* display: flex; */
-    
+    text-align: left;
 }
 
-/* #points-container > td {
-    height: 30px;
-    width: 30px;
+#secrets {
+    height: 250px;
+}
+
+#secrets-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.secret-card {
+    width: max-content;
+    background: red;
+    /* margin-left: 3px;
+    margin-right: 3px; */
+    margin: 3px;
+    height: max-content;
+}
+
+/* .scoreboard-score-el {
+    width: 15px
 } */
+
 .public {
     width: 250px
 }

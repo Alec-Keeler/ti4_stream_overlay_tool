@@ -10,3 +10,11 @@ Update 1 (Mar 09, 2021):
     * Now using a shorter key and added two letter characters to the end of the key string.
     * Since the !gamedata command now defaults to 30 second updates, removed the '30' part of the TTS command string and associated instruction.
     * New Feature: Tech Overview component fully functional.
+
+Update 2 ():
+    * Implemented a minor feature that crosses out used strategy cards on the scoreboard.
+    * Fixed styling to prevent names/factions not being fully contained and visible on the scoreboard.
+    * New Feature: Available Points component fully functional.
+        Notes: To track Imperial Rider points, you MUST use the original action card to place owner token(s) on, return copies to the AC discard pile.
+        Notes: If a law causes a secret to become a public objecive, it will still be tracked as a secret objective on the component, but will appear multiple times, once for each player who has scored it.
+    

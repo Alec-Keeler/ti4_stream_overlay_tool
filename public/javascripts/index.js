@@ -1,7 +1,7 @@
 import { initExtract, standardUpdate } from "./extractors.js"
 import { createScoreboard, updateScoreBoard } from "./scoreboard-dom.js"
 import { createTechOverview, updateTechOverview } from "./tech-overview-dom.js"
-import { updatePointsBoard, initLaw } from "./points-overview-dom.js"
+import { updatePointsBoard } from "./points-overview-dom.js"
 //variables for testing:
 let loop;
 let count = 1
@@ -59,7 +59,8 @@ window.addEventListener('DOMContentLoaded', event => {
                     createTechOverview(data);
                     createScoreboard(data);
                     initExtract(data);
-                    initLaw(data);
+                    //deprecated from points-overview-dom
+                    // initLaw(data);
                     loop = setInterval(loopFetch, 3000);
                 });
             });
