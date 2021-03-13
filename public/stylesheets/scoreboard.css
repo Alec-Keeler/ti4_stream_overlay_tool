@@ -3,7 +3,7 @@
 }
 
 .border > div {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .passed {
@@ -46,9 +46,9 @@
 }
 
 #player-score-container > div {
-    display: grid;
+    /* display: grid; */
     /* border: 1px solid black; */
-    grid-template-columns: 1fr 0.25fr 1fr;
+    /* grid-template-columns: 1fr 0.25fr 1fr; */
 }
 
 #player-score-container div div {

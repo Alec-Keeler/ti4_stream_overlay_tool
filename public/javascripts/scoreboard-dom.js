@@ -3,6 +3,14 @@ let currentTurn = null;
 let currRound = 1;
 // need to track round so i can remove passed class when a new round starts
 
+//This function will check if a player has a faction, and if not return a string
+function checkFaction(faction) {
+    if (faction === undefined) {
+        return "Faction Unchosen"
+    }
+    return faction
+}
+
 function getPlayerInfo(data) {
     let playerInfo = [];
     let playerData = data.players;
@@ -32,11 +40,14 @@ export function createScoreboard(data) {
         let factionName = playerInfo[i][5];
         let parentEl = document.getElementById(`player-score-details-${color}`);
         let nameEl = document.createElement('div');
-        nameEl.innerHTML = `${name} as ${factionName}`;
+        // nameEl.innerHTML = `${name} as ${factionName}`;
+        nameEl.innerHTML = name;
         nameEl.setAttribute('id', `scoreboard-name-${color}`);
         nameEl.setAttribute('class', `scoreboard-name-el-active`);
         let initScoreEl = document.createElement('div');
-        initScoreEl.innerHTML = playerInfo[i][4];
+        // initScoreEl.innerHTML = playerInfo[i][4];
+        factionName = checkFaction(factionName);
+        initScoreEl.innerHTML = `${factionName} -- ${playerInfo[i][4]}`
         initScoreEl.setAttribute('id', `scoreboard-score-${color}`);
         initScoreEl.setAttribute('class', `scoreboard-score-el`);
         let stratCardOne = stratCards[0];
@@ -89,8 +100,10 @@ export function updateScoreBoard(data) {
         let stratCards = playerInfo[i][2];
         let activeStatus = playerInfo[i][3];
         let score = playerInfo[i][4];
+        let faction = playerInfo[i][5]
+        faction = checkFaction(faction);
         let scoreEl = document.getElementById(`scoreboard-score-${color}`);
-        scoreEl.innerHTML = score;
+        scoreEl.innerHTML = `${faction} -- ${score}`;
         let stratCardEl = document.getElementById(`scoreboard-strat-${color}`);
         let usedStratCard = data.players[i].strategyCardsFaceDown;
         if (usedStratCard[0] === stratCardEl.innerHTML) {

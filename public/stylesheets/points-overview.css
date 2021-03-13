@@ -2,6 +2,7 @@
     background: #061738;
     width: 430px;
     color: white;
+    text-align: center;
 }
 
 #points-container {
@@ -14,10 +15,10 @@
     
 }
 
-/* #points-container > td {
-    height: 30px;
-    width: 30px;
+/* .scoreboard-score-el {
+    width: 15px
 } */
+
 .public {
     width: 250px
 }

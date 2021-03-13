@@ -14,31 +14,45 @@ let iPObjective = null;
 //Program coming up. (The objective may take the place of another objective, and if
 //that objective had been scored by anyone, their score indicators would carry over
 //to the IP objective.)
-function removeScoreClasses(index) {
-    let whiteEl = document.getElementById(`pointWhite${index}`)
-    let blueEl = document.getElementById(`pointBlue${index}`)
-    let purpleEl = document.getElementById(`pointPurple${index}`)
-    let yellowEl = document.getElementById(`pointYellow${index}`)
-    let redEl = document.getElementById(`pointRed${index}`)
-    let greenEl = document.getElementById(`pointGreen${index}`)
-    let eles = [whiteEl, blueEl, purpleEl, yellowEl, redEl, greenEl]
-    for (let i = 0; i < eles.length; i++) {
-        const ele = eles[i];
-        ele.className = '';
-    }
-}
+
+//Deprecated after change to objective data storage
+// function removeScoreClasses(index) {
+//     let whiteEl = document.getElementById(`pointWhite${index}`)
+//     let blueEl = document.getElementById(`pointBlue${index}`)
+//     let purpleEl = document.getElementById(`pointPurple${index}`)
+//     let yellowEl = document.getElementById(`pointYellow${index}`)
+//     let redEl = document.getElementById(`pointRed${index}`)
+//     let greenEl = document.getElementById(`pointGreen${index}`)
+//     let eles = [whiteEl, blueEl, purpleEl, yellowEl, redEl, greenEl]
+//     for (let i = 0; i < eles.length; i++) {
+//         const ele = eles[i];
+//         ele.className = '';
+//     }
+// }
 
 //This function turns the objectives into css classes and sets the innerHTML of
 //the elements to the objective name, with special logic to add (IP) to the objective
 //revealed from that agenda.
-function classifyPO(objective, index, isIPObj) {
+function classifyPO(objective, index, data) {
     let objClass= objective.split(" ").join("-");
     let publicEl = null
-    if (isIPObj) {
-        removeScoreClasses(index);
+    let obs1 = data.objectives["Public Objectives I"]
+    let obs2 = [];
+    let offBoardObs = [];
+    if (data.objectives["Public Objectives II"]) {
+        obs2 = data.objectives["Public Objectives II"]
+    }
+    if (data.objectives.offBoardPublicObjectives) {
+        offBoardObs = data.objectives.offBoardPublicObjectives
+    }
+    // if (isIPObj) {
+    //     removeScoreClasses(index);
 
+    //     publicEl = document.getElementById(`public${index}`);
+
+    //     publicEl.innerHTML = objective + " (IP)"
+    if ((obs1.includes(objective) && offBoardObs.includes(objective)) || obs2.includes(objective) && offBoardObs.includes(objective)) {
         publicEl = document.getElementById(`public${index}`);
-
         publicEl.innerHTML = objective + " (IP)"
     } else {
         publicEl = document.getElementById(`public${index}`);
@@ -66,57 +80,65 @@ function playerHasScoredPOChecker(player) {
 //This function checks if IP is in the saved laws array.  If it isn't, but it is in
 //the laws array from the update, we add it and flip a flag.  When the flag flips,
 //as soon as we detect a new objective, we return that obejctive and flip the flag back.
-function checkForIP(data) {
-    if (data.laws[data.laws.length - 1] === "Incentive Program" && !currentLaws.includes("Incentive Program")) {
-        iPFlag = true;
-    }
-    let newObj = updateObjCount(data)
-    if (iPFlag && newObj) {
-        updateLaws(data);
-        iPFlag = false
-        iPObjective = newObj;
-        return newObj
-    }
-    updateLaws(data);
-}
+
+//Deprecated after change to objective data storage
+// function checkForIP(data) {
+//     if (data.laws[data.laws.length - 1] === "Incentive Program" && !currentLaws.includes("Incentive Program")) {
+//         iPFlag = true;
+//     }
+//     let newObj = updateObjCount(data)
+//     if (iPFlag && newObj) {
+//         updateLaws(data);
+//         iPFlag = false
+//         iPObjective = newObj;
+//         return newObj
+//     }
+//     updateLaws(data);
+// }
 
 //This function adds new laws to the constant to help track Incentive Program.
-function updateLaws(data) {
-    if (currentLaws.length < data.laws.length) {
-        console.log(data.laws[data.laws.length - 1])
-        let newLaw = data.laws[data.laws.length - 1]
-        currentLaws.push(newLaw)
-    }
-}
+
+//Deprecated after change to objective data storage
+// function updateLaws(data) {
+//     if (currentLaws.length < data.laws.length) {
+//         console.log(data.laws[data.laws.length - 1])
+//         let newLaw = data.laws[data.laws.length - 1]
+//         currentLaws.push(newLaw)
+//     }
+// }
 
 //This function is mostly for testing to set the base status of laws in game
 //on the first fetch.  Assuming games have no laws in play at the start, this
 //needed on live.
-export function initLaw(data) {
-    currentLaws = data.laws
-}
+
+//Deprecated after change to objective data storage
+// export function initLaw(data) {
+//     currentLaws = data.laws
+// }
 
 //This function helps track the count of objectives to determine which objective 
 //was added from Incentive Program 
-function updateObjCount(data) {
-    let currS1Count = publicObs1Count;
-    let currS2Count = publicObs2Count;
-    let newS1Count = data.objectives["Public Objectives I"].length
-    let newS2Count;
-    if (data.objectives["Public Objectives II"]) {
-        newS2Count = data.objectives["Public Objectives II"].length
-    } else {
-        newS2Count = 0;
-    }
-    if (currS1Count < newS1Count) {
-        publicObs1Count++;
-        return data.objectives["Public Objectives I"][data.objectives["Public Objectives I"].length - 1]
-    } else if (currS2Count < newS2Count) {
-        publicObs2Count++;
-        return data.objectives["Public Objectives II"][data.objectives["Public Objectives II"].length - 1]
-    }
-    return false;
-}
+
+//Deprecated after change to objective data storage
+// function updateObjCount(data) {
+//     let currS1Count = publicObs1Count;
+//     let currS2Count = publicObs2Count;
+//     let newS1Count = data.objectives["Public Objectives I"].length
+//     let newS2Count;
+//     if (data.objectives["Public Objectives II"]) {
+//         newS2Count = data.objectives["Public Objectives II"].length
+//     } else {
+//         newS2Count = 0;
+//     }
+//     if (currS1Count < newS1Count) {
+//         publicObs1Count++;
+//         return data.objectives["Public Objectives I"][data.objectives["Public Objectives I"].length - 1]
+//     } else if (currS2Count < newS2Count) {
+//         publicObs2Count++;
+//         return data.objectives["Public Objectives II"][data.objectives["Public Objectives II"].length - 1]
+//     }
+//     return false;
+// }
 
 //This function checks to see if a player has scored a point from Imperial Rider
 function checkForImpRiders(players) {
@@ -316,6 +338,7 @@ export function updatePointsBoard(data) {
         stage2s = data.objectives["Public Objectives II"];
     }
     //check for Incentive Program, if it exists, set a flag and begin checking objective count
+    //Deprecated after change to objective data storage
     // let incentiveObj = checkForIP(data);
     let publics = stage1s.concat(stage2s);
     for (let i = 0; i < publics.length; i++) {
@@ -325,7 +348,7 @@ export function updatePointsBoard(data) {
         // } else {
         //     classifyPO(publicOb, i, false)
         // }
-        classifyPO(publicOb, i)
+        classifyPO(publicOb, i, data)
     }
     clearImpRiderDom();
     let players = data.players;
