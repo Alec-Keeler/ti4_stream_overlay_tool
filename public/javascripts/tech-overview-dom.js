@@ -92,6 +92,9 @@ function extractPlayerTechs(data) {
     for (let i = 0; i < data.players.length; i++) {
         let playerColor = data.players[i].color;
         let playerFaction = data.players[i].factionShort
+        if (playerFaction === undefined) {
+            playerFaction = "Unchosen"
+        }
         let playerTechs = data.players[i].technologies;
         allTechs.push([playerColor, playerFaction, playerTechs]);
     };

@@ -4,6 +4,9 @@ function assignFactionNames(data) {
     for (let i = 0; i < players.length; i++) {
         let player = players[i];
         let faction = player.factionShort;
+        if (faction === undefined) {
+            faction = "Unchosen"
+        }
         let color = player.color
         let ele = document.getElementById(`header-${color}`);
         ele.innerHTML = faction;
