@@ -6,6 +6,7 @@ append head
   link(rel='stylesheet' href='/stylesheets/scoreboard.css')
   link(rel='stylesheet' href='/stylesheets/tech-overview.css')
   link(rel='stylesheet' href='/stylesheets/points-overview.css')
+  link(rel='stylesheet' href='/stylesheets/resource-overview.css')
   //- add page specific js
 
   script(src="/javascripts/index.js" type="module" defer)
@@ -33,7 +34,7 @@ block content
       div#available-points Available Points
         div#points-container
           table
-            tr
+            tr.points-tr
               td#public0.public
               td#pointWhite0
               td#pointBlue0
@@ -41,7 +42,7 @@ block content
               td#pointYellow0
               td#pointRed0
               td#pointGreen0
-            tr
+            tr.points-tr
               td#public1.public
               td#pointWhite1
               td#pointBlue1
@@ -49,7 +50,7 @@ block content
               td#pointYellow1
               td#pointRed1
               td#pointGreen1
-            tr
+            tr.points-tr
               td#public2.public
               td#pointWhite2
               td#pointBlue2
@@ -57,7 +58,7 @@ block content
               td#pointYellow2
               td#pointRed2
               td#pointGreen2
-            tr
+            tr.points-tr
               td#public3.public
               td#pointWhite3
               td#pointBlue3
@@ -65,7 +66,7 @@ block content
               td#pointYellow3
               td#pointRed3
               td#pointGreen3
-            tr
+            tr.points-tr
               td#public4.public
               td#pointWhite4
               td#pointBlue4
@@ -73,7 +74,7 @@ block content
               td#pointYellow4
               td#pointRed4
               td#pointGreen4
-            tr
+            tr.points-tr
               td#public5.public
               td#pointWhite5
               td#pointBlue5
@@ -81,7 +82,7 @@ block content
               td#pointYellow5
               td#pointRed5
               td#pointGreen5
-            tr
+            tr.points-tr
               td#public6.public
               td#pointWhite6
               td#pointBlue6
@@ -89,7 +90,7 @@ block content
               td#pointYellow6
               td#pointRed6
               td#pointGreen6
-            tr
+            tr.points-tr
               td#public7.public
               td#pointWhite7
               td#pointBlue7
@@ -97,7 +98,7 @@ block content
               td#pointYellow7
               td#pointRed7
               td#pointGreen7
-            tr
+            tr.points-tr
               td#public8.public
               td#pointWhite8
               td#pointBlue8
@@ -105,7 +106,7 @@ block content
               td#pointYellow8
               td#pointRed8
               td#pointGreen8
-            tr
+            tr.points-tr
               td#public9.public
               td#pointWhite9
               td#pointBlue9
@@ -113,7 +114,7 @@ block content
               td#pointYellow9
               td#pointRed9
               td#pointGreen9
-            tr
+            tr.points-tr
               td#public10.public
               td#pointWhite10
               td#pointBlue10
@@ -121,7 +122,7 @@ block content
               td#pointYellow10
               td#pointRed10
               td#pointGreen10
-            tr
+            tr.points-tr
               td#Political
               td#law-censure.law1-0
               td#law-censure.law1-1
@@ -129,7 +130,7 @@ block content
               td#law-censure.law1-3
               td#law-censure.law1-4
               td#law-censure.law1-5
-            tr
+            tr.points-tr
               td#Seed
               td#law-seed.law2-0
               td#law-seed.law2-1
@@ -137,7 +138,7 @@ block content
               td#law-seed.law2-3
               td#law-seed.law2-4
               td#law-seed.law2-5
-            tr
+            tr.points-tr
               td#Mutiny
               td#law-mutiny.law3-0
               td#law-mutiny.law3-1
@@ -145,7 +146,7 @@ block content
               td#law-mutiny.law3-3
               td#law-mutiny.law3-4
               td#law-mutiny.law3-5
-            tr
+            tr.points-tr
               td#relic-shard 
               td#shard-point1
               td#shard-point.shard-N
@@ -153,7 +154,7 @@ block content
               td#shard-point.shard-N
               td#shard-point.shard-N
               td#shard-point.shard-N
-            tr
+            tr.points-tr
               td#relic-crown 
               td#crown-point1
               td#crown-point.crown-N
@@ -161,7 +162,7 @@ block content
               td#crown-point.crown-N
               td#crown-point.crown-N
               td#crown-point.crown-N
-            tr
+            tr.points-tr
               td#custodians.public Custodians Points
               td#custodian-point.custodian1.custod
               td#custodian-point.custodian2.custod
@@ -169,7 +170,7 @@ block content
               td#custodian-point.custodian4.custod
               td#custodian-point.custodian5.custod
               td#custodian-point.custodian6.custod
-            tr
+            tr.points-tr
               td#supports Support Points
               td#support-point-White.support
               td#support-point-Blue.support
@@ -177,7 +178,7 @@ block content
               td#support-point-Yellow.support
               td#support-point-Red.support
               td#support-point-Green.support
-            tr
+            tr.points-tr
               td#imp-riders
               td#imp-rider-point0.imp-rider1
               td#imp-rider-point1.imp-rider2
@@ -197,6 +198,95 @@ block content
           div#player-techs-Green.tech-header
       div#resources-overview Resources Overview
         div#resource-container
+          table
+            tr
+              td#row-header.row-header.main-header Asset
+              td#header-White.asset-header.header-col-White
+              td#header-Blue.asset-header.header-col-Blue
+              td#header-Purple.asset-header.header-col-Purple
+              td#header-Yellow.asset-header.header-col-Yellow
+              td#header-Red.asset-header.header-col-Red
+              td#header-Green.asset-header.header-col-Green
+            tr
+              td#row-header.row-header Resources
+              td#resource-White.asset-card
+              td#resource-Blue.asset-card
+              td#resource-Purple.asset-card
+              td#resource-Yellow.asset-card
+              td#resource-Red.asset-card
+              td#resource-Green.asset-card
+            tr
+              td#row-header.row-header Influence
+              td#influence-White.asset-card
+              td#influence-Blue.asset-card
+              td#influence-Purple.asset-card
+              td#influence-Yellow.asset-card
+              td#influence-Red.asset-card
+              td#influence-Green.asset-card
+            tr
+              td#row-header.row-header TGs/Comms
+              td#trade-White.asset-card
+              td#trade-Blue.asset-card
+              td#trade-Purple.asset-card
+              td#trade-Yellow.asset-card
+              td#trade-Red.asset-card
+              td#trade-Green.asset-card
+            tr
+              td#row-header.row-header Tokens
+              td#tokens-White.asset-card
+              td#tokens-Blue.asset-card
+              td#tokens-Purple.asset-card
+              td#tokens-Yellow.asset-card
+              td#tokens-Red.asset-card
+              td#tokens-Green.asset-card
+            tr
+              td#row-header.row-header SOs/ACs
+              td#hand-White.asset-card
+              td#hand-Blue.asset-card
+              td#hand-Purple.asset-card
+              td#hand-Yellow.asset-card
+              td#hand-Red.asset-card
+              td#hand-Green.asset-card
+            tr
+              td#row-header.row-header Commander
+              td#commander-White.asset-card
+              td#commander-Blue.asset-card
+              td#commander-Purple.asset-card
+              td#commander-Yellow.asset-card
+              td#commander-Red.asset-card
+              td#commander-Green.asset-card
+            tr
+              td#row-header.row-header Hero
+              td#hero-White.asset-card
+              td#hero-Blue.asset-card
+              td#hero-Purple.asset-card
+              td#hero-Yellow.asset-card
+              td#hero-Red.asset-card
+              td#hero-Green.asset-card
+            tr
+              td#row-header.row-header Tech Skips
+              td#skips-White.asset-card
+              td#skips-Blue.asset-card
+              td#skips-Purple.asset-card
+              td#skips-Yellow.asset-card
+              td#skips-Red.asset-card
+              td#skips-Green.asset-card
+            tr
+              td#row-header.row-header Traits
+              td#traits-White.asset-card
+              td#traits-Blue.asset-card
+              td#traits-Purple.asset-card
+              td#traits-Yellow.asset-card
+              td#traits-Red.asset-card
+              td#traits-Green.asset-card
+            //- tr
+            //-   td#row-header.row-header Legendaries
+            //-   td#legends-White.asset-card
+            //-   td#legends-Blue.asset-card
+            //-   td#legends-Purple.asset-card
+            //-   td#legends-Yellow.asset-card
+            //-   td#legends-Red.asset-card
+            //-   td#legends-Green.asset-card
       div#law-overview
         p Law Overview
       div#rotating-tech

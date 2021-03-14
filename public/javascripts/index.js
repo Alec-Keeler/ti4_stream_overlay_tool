@@ -2,6 +2,7 @@ import { initExtract, standardUpdate } from "./extractors.js"
 import { createScoreboard, updateScoreBoard } from "./scoreboard-dom.js"
 import { createTechOverview, updateTechOverview } from "./tech-overview-dom.js"
 import { updatePointsBoard } from "./points-overview-dom.js"
+import { updateResourceOverview } from "./resource-overview.js"
 //variables for testing:
 let loop;
 let count = 1
@@ -30,6 +31,7 @@ const loopFetch = async () => {
                     standardUpdate(data);
                     updateTechOverview(data);
                     updateScoreBoard(data);
+                    updateResourceOverview(data);
                 });
             // } else if (response.status === 304) {
 
