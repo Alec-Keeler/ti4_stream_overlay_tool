@@ -11,7 +11,8 @@ const instructions = [
   "Use OBS (or any other streaming software) to capture each component you wish to display.",
   "When your game is over, click Stop Getting Data and type !gamedata into the TTS chat box to end data collection.",
   "Please note that this tool is still in development.  At the moment this tool will not work properly unless all 6 players are using the base colors (White, Blue, Purple, Yellow, Red, Green)",
-  "On the scoreboard: A player's score cell will become a brighter blue when it's their turn and a gray-blue when they have passed"
+  "On the scoreboard: A player's score cell will become a brighter blue when it's their turn and a gray-blue when they have passed",
+  "IMPORTANT: Cards that grant points, such as Imperial Rider, various laws, Supports, etc, if copied, the ORIGINAL MUST be used for scoring purposes, copies can be placed in play areas (without owner tokens) or in discard piles as needed."
 ]
 
 /* GET home page. */
