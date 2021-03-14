@@ -87,38 +87,50 @@ function setTurnClass(currentPlayer) {
     }
 }
 
+//This function updates the name elements so players can move seats without
+//having to refresh the tool.
+function updateName(playerInfo) {
+    // [color, name, stratCards, activeStatus, score, factionName]
+    for (let i = 0; i < playerInfo.length; i++) {
+        const playerStuff = playerInfo[i];
+        let color = playerStuff[0];
+        let name = playerStuff[1];
+        let ele = document.getElementById(`scoreboard-name-${color}`);
+        ele.innerHTML = name;
+    }
+}
+
 export function updateScoreBoard(data) {
     let playerInfo = getPlayerInfo(data);
     let playerTurn = data.turn;
-    // console.log(playerTurn)
     setTurnClass(playerTurn);
-    let roundEl = document.getElementById('round')
-    roundEl.innerHTML = `Round: ${data.round}`
-
+    let roundEl = document.getElementById('round');
+    roundEl.innerHTML = `Round: ${data.round}`;
+    updateName(playerInfo);
     for (let i = 0; i < playerInfo.length; i++) {
         let color = playerInfo[i][0];
         let stratCards = playerInfo[i][2];
         let activeStatus = playerInfo[i][3];
         let score = playerInfo[i][4];
-        let faction = playerInfo[i][5]
+        let faction = playerInfo[i][5];
         faction = checkFaction(faction);
         let scoreEl = document.getElementById(`scoreboard-score-${color}`);
         scoreEl.innerHTML = `${faction} -- ${score}`;
         let stratCardEl = document.getElementById(`scoreboard-strat-${color}`);
         let usedStratCard = data.players[i].strategyCardsFaceDown;
         if (usedStratCard[0] === stratCardEl.innerHTML) {
-            stratCardEl.classList.add('exhausted')
+            stratCardEl.classList.add('exhausted');
         } else if (usedStratCard.length === 0) {
             if (stratCardEl.classList.contains('exhausted')) {
-                stratCardEl.classList.remove('exhausted')
+                stratCardEl.classList.remove('exhausted');
             }
         }
         if (stratCards.length) {
-            stratCardEl.innerHTML = stratCards[0]
+            stratCardEl.innerHTML = stratCards[0];
         } else {
-            stratCardEl.innerHTML = "None"
+            stratCardEl.innerHTML = "None";
         }
-        let playerScoreEl = document.getElementById(`player-score-details-${color}`)
+        let playerScoreEl = document.getElementById(`player-score-details-${color}`);
         if (activeStatus === true) {
             playerScoreEl.classList.remove('passed');
         } else {

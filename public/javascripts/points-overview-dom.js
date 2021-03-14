@@ -379,7 +379,10 @@ function supportPointChecker(data) {
 
 //This function updates the scoreboard every loop
 export function updatePointsBoard(data) {
-    let stage1s = data.objectives["Public Objectives I"];
+    let stage1s = [];
+    if (data.objectives["Public Objectives I"]) {
+        stage1s = data.objectives["Public Objectives I"];
+    }
     let stage2s = []
     if (data.objectives["Public Objectives II"]) {
         stage2s = data.objectives["Public Objectives II"];

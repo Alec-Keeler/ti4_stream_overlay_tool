@@ -45,7 +45,7 @@ function updateTrade(data) {
         let tradeGoods = player.tradeGoods;
         let commodities = player.commodities;
         let ele = document.getElementById(`trade-${color}`);
-        ele.innerHTML = `${tradeGoods} / ${commodities}`;
+        ele.innerHTML = `TGs:${tradeGoods}/Cmdts:${commodities}`;
     }
 }
 
