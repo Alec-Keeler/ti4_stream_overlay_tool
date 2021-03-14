@@ -18,3 +18,6 @@ Update 2 (Mar 13, 2021):
         Notes: To track Imperial Rider points, you MUST use the original action card to place owner token(s) on, return copies to the AC discard pile.
         Notes: If a law causes a secret to become a public objecive, it will still be tracked as a secret objective on the component, but will appear multiple times, once for each player who has scored it.
     
+Update 3 ()
+    * Updated Available Points component to remove a point indicator if Political Censure is repealed.  It will also indicate that the law had been in play but was repealed.
+    

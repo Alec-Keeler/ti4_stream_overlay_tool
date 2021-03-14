@@ -180,6 +180,22 @@ function scoreLawPoints(law, players, id) {
     }
 }
 
+//This function will check to see if Political Censure was repealed, and clear
+//the appropriate classes as necessary
+function repealCensure(data) {
+    if (!data.laws.includes("Political Censure")) {
+        for (let i = 0; i < 6; i++) {
+            const element = document.getElementsByClassName(`law1-${i}`);
+            let eleClasses = element[0].classList
+            if (eleClasses.length > 1) {
+                let lawHeader = document.getElementById('Political');
+                lawHeader.innerHTML = 'Political Censure (Repealed)'
+                element[0].setAttribute('class', `law1-${i}`)
+            }
+        }
+    }
+}
+
 //This function will clear custodian point classes to avoid duplicates
 function clearCustodsClasses() {
     let custodEles = document.getElementsByClassName('custod');
@@ -383,6 +399,7 @@ export function updatePointsBoard(data) {
     findLawPoints(data);
     checkForRelics(data);
     supportPointChecker(data);
+    repealCensure(data);
     for (let i = 0; i < players.length; i++) {
         let player = players[i];
         //add individual score checkers here
