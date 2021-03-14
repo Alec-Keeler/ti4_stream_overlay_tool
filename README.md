@@ -11,7 +11,7 @@ Update 1 (Mar 09, 2021):
     * Since the !gamedata command now defaults to 30 second updates, removed the '30' part of the TTS command string and associated instruction.
     * New Feature: Tech Overview component fully functional.
 
-Update 2 ():
+Update 2 (Mar 13, 2021):
     * Implemented a minor feature that crosses out used strategy cards on the scoreboard.
     * Fixed styling to prevent names/factions not being fully contained and visible on the scoreboard.
     * New Feature: Available Points component fully functional.
