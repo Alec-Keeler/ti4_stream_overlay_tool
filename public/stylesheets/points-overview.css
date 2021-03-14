@@ -16,7 +16,7 @@
 }
 
 #secrets {
-    height: 250px;
+    height: 270px;
 }
 
 #secrets-container {
@@ -24,13 +24,31 @@
     flex-wrap: wrap;
 }
 
+.support {
+    color: black;
+    text-align: center;
+}
+.stage-1 {
+    background: #ffde17;
+    color: black;
+}
+
+.stage-2 {
+    background: #6EC1E4;
+    color: black;
+}
+
 .secret-card {
     width: max-content;
-    background: red;
+    /* background: red; */
     /* margin-left: 3px;
     margin-right: 3px; */
-    margin: 3px;
+    /* margin: 1px; */
     height: max-content;
+    color: black;
+    border: 2px solid black;
+    border-radius: 3px;
+    padding: 2px;
 }
 
 /* .scoreboard-score-el {

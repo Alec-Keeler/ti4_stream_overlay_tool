@@ -13,6 +13,27 @@ let impRiderScored = false;
 let secretDescriptions = getSecretDescriptions();
 let publicDescriptions = getPublicDescriptions();
 
+//This function will check if a public objective is stage 1 or 2, and apply a class
+//appropriately
+function determineStage(objective, data) {
+    if (data.objectives["Public Objectives I"].includes(objective)) {
+        return "stage-1"
+    } else {
+        return "stage-2"
+    }
+}
+
+//This function will clear the classlist of a Public Objective element, as well as 
+//clearing the classes from the point indicators associated to it
+function clearPublicObjDom(element, index) {
+    element.setAttribute('class', 'public');
+    let colors = ["White", "Blue", "Purple", "Yellow", "Red", "Green"];
+    for (let i = 0; i < colors.length; i++) {
+        let pointEl = document.getElementById(`point${colors[i]}${index}`);
+        pointEl.setAttribute('class', '')
+    }
+}
+
 //This function turns the objectives into css classes and sets the innerHTML of
 //the elements to the objective name, with special logic to add (IP) to the objective
 //revealed from that agenda.
@@ -22,6 +43,7 @@ function classifyPO(objective, index, data) {
     let obs1 = data.objectives["Public Objectives I"]
     let obs2 = [];
     let offBoardObs = [];
+    let stageClass = determineStage(objective, data);
     if (data.objectives["Public Objectives II"]) {
         obs2 = data.objectives["Public Objectives II"]
     }
@@ -30,12 +52,14 @@ function classifyPO(objective, index, data) {
     }
     if ((obs1.includes(objective) && offBoardObs.includes(objective)) || obs2.includes(objective) && offBoardObs.includes(objective)) {
         publicEl = document.getElementById(`public${index}`);
+        clearPublicObjDom(publicEl, index);
         publicEl.innerHTML = publicDescriptions[objective] + " (IP)"
     } else {
         publicEl = document.getElementById(`public${index}`);
         publicEl.innerHTML = publicDescriptions[objective]
     }
     publicEl.classList.add(objClass);
+    publicEl.classList.add(stageClass);
     publicObs[`public${index}`] = objective
 }
 
@@ -197,7 +221,6 @@ function checkCustods(players) {
 function scoreShard(player) {
     let ele = document.getElementById("shard-point1");
     let eleClasses = ele.classList;
-    console.log(eleClasses);
     if (eleClasses.length > 0) {
         let eleClass = eleClasses[0];
         ele.classList.remove(eleClass);
@@ -209,7 +232,6 @@ function scoreShard(player) {
 function scoreCrown(player) {
     let ele = document.getElementById("crown-point1");
     let eleClasses = ele.classList;
-    console.log(eleClasses);
     if (eleClasses.length > 0) {
         let eleClass = eleClasses[0];
         ele.classList.remove(eleClass);
@@ -257,17 +279,86 @@ function checkForRelics(data) {
     }
 }
 
-//This is a test function to create a single secret element for testing
-function testSecrets(){
-    let secretDiv = document.getElementById('secrets-container');
-    let newSecret = document.createElement('div')
-    newSecret.innerHTML = "A Secret Ob"
-    newSecret.setAttribute('class', 'secret-card')
-    secretDiv.appendChild(newSecret)
+//This function will check for any Secret Objectives a player has scored and create
+//and append an element for that SO to the SO container
+
+function checkForSecrets(player, data) {
+    let allScoredSecrets = data.objectives["Secret Objectives"];
+    let playerScoredObs = player.objectives
+    for (let i = 0; i < playerScoredObs.length; i++) {
+        const objective = playerScoredObs[i];
+        if (allScoredSecrets.includes(objective)) {
+            let parentEl = document.getElementById("secrets-container");
+            let secretEl = document.createElement('div');
+            let abrevObj = secretDescriptions[objective];
+            secretEl.innerHTML = abrevObj;
+            secretEl.setAttribute('class', `scored-${player.color}`);
+            secretEl.classList.add('secret-card')
+            parentEl.appendChild(secretEl);
+        }
+    }
 }
 
-for (let i = 0; i < 25; i++) {
-    testSecrets();
+//This function will clear the secret container dom to be reset by the check function
+
+function clearSecretDom() {
+    let parentEl = document.getElementById(`secrets-container`)
+    while (parentEl.lastElementChild) {
+        parentEl.removeChild(parentEl.lastElementChild)
+    }
+}
+
+//This function will clear the Support point dom
+function clearSupportDom() {
+    let colors = ["White", "Blue", "Purple", "Yellow", "Red", "Green"];
+    for (let i = 0; i < colors.length; i++) {
+        const color = colors[i];
+        let element = document.getElementById(`support-point-${color}`);
+        element.setAttribute('class', 'support');
+        element.innerHTML = '';
+    }
+}
+
+//This function assigns classes to appropriate elements for support points
+function assignSecretPoint(supporter, pointColor) {
+    let firstLetter = supporter.split('')[0]
+    let ele = document.getElementById(`support-point-${supporter}`);
+    ele.classList.add(`scored-${pointColor}`);
+    ele.innerHTML = firstLetter;
+}
+
+//This function extracts the color from a support objective string
+function extractSecretColor(word) {
+    let wordArr = word.split('');
+    let color = []
+    for (let i = 0; i < wordArr.length; i++) {
+        const char = wordArr[i];
+        if (char !== '(' && char !== ')') {
+            color.push(char);
+        }
+    }
+    return color.join('');
+}
+
+//This function will check each player for support points and call a function that
+//will assign classes to appropriate elements
+function supportPointChecker(data) {
+    clearSupportDom();
+    for (let i = 0; i < data.players.length; i++) {
+        const player = data.players[i];
+        let playersPoints = player.objectives;
+        for (let j = 0; j < playersPoints.length; j++) {
+            const objective = playersPoints[j];
+            let firstWord = objective.split(' ')[0]
+            if (firstWord === "Support") {
+                let supporterColor = objective.split(' ')[4];
+                let pointColor = player.color
+                supporterColor = extractSecretColor(supporterColor)
+                assignSecretPoint(supporterColor, pointColor)
+
+            }
+        }
+    }
 }
 
 //This function updates the scoreboard every loop
@@ -283,15 +374,19 @@ export function updatePointsBoard(data) {
         classifyPO(publicOb, i, data)
     }
     clearImpRiderDom();
+    clearSecretDom();
+    clearSupportDom();
     let players = data.players;
     //add nonindividual score checkers here
     checkForImpRiders(players);
     checkCustods(players);
     findLawPoints(data);
     checkForRelics(data);
+    supportPointChecker(data);
     for (let i = 0; i < players.length; i++) {
         let player = players[i];
         //add individual score checkers here
         playerHasScoredPOChecker(player);
+        checkForSecrets(player, data);
     }
 }
