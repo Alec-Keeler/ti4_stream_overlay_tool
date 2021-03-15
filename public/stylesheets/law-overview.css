@@ -1,5 +1,5 @@
 #law-overview {
-    height: 200px;
+    height: 210px;
     background: #061738;
     width: 400px;
     color: white;
@@ -9,6 +9,7 @@
 #law-container {
     display: flex;
     flex-wrap: wrap;
+    padding: 4px
 }
 
 .agenda {
@@ -17,6 +18,7 @@
     border: 2px solid white;
     border-radius: 3px;
     padding: 2px;
+    margin: 1px;
 }
 
 .elected-White {
