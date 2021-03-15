@@ -3,6 +3,7 @@ import { createScoreboard, updateScoreBoard } from "./scoreboard-dom.js"
 import { createTechOverview, updateTechOverview } from "./tech-overview-dom.js"
 import { updatePointsBoard } from "./points-overview-dom.js"
 import { updateResourceOverview } from "./resource-overview.js"
+import { updateLawOverview } from "./law-overview.js"
 //variables for testing:
 let loop;
 let count = 1
@@ -32,6 +33,7 @@ const loopFetch = async () => {
                     updateTechOverview(data);
                     updateScoreBoard(data);
                     updateResourceOverview(data);
+                    updateLawOverview(data);
                 });
             // } else if (response.status === 304) {
 

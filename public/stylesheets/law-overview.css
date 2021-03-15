@@ -1,0 +1,45 @@
+#law-overview {
+    height: 200px;
+    background: #061738;
+    width: 400px;
+    color: white;
+    text-align: center;
+}
+
+#law-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.agenda {
+    width: max-content;
+    height: max-content;
+    border: 2px solid white;
+    border-radius: 3px;
+    padding: 2px;
+}
+
+.elected-White {
+    background: white;
+    color: black;
+}
+.elected-Blue {
+    background: #6EC1E4;
+    color: black;
+}
+.elected-Purple {
+    background: #9161a8;
+    color: black;
+}
+.elected-Yellow {
+    background: #ffde17;
+    color: black;
+}
+.elected-Red {
+    background: #e46d72;
+    color: black;
+}
+.elected-Green {
+    background: #00a14b;
+    color: black;
+}

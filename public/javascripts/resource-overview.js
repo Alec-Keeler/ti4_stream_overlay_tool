@@ -149,18 +149,6 @@ function updateTraits(data) {
     }
 }
 
-//This function will update the legendary cells
-// function updateLegendaries(data) {
-//     let players = data.players;
-//     for (let i = 0; i < players.length; i++) {
-//         let player = players[i];
-//         let color = player.color;
-//         let legendaries = player.planetTotals.legendary
-//         let ele = document.getElementById(`legends-${color}`);
-//         ele.innerHTML = legendaries;
-//     }
-// }
-
 //This is the master function to update the component
 export function updateResourceOverview(data) {
     assignFactionNames(data);
