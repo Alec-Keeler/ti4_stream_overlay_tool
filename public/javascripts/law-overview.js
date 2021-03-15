@@ -30,15 +30,11 @@ function checkPlayerOwnsLaw(data, currLaw, element) {
         let player = players[i];
         let playerCol = player.color;
         let playerLaws = player.laws;
-        let pointAgendas = []
-        if (data.objectives.Agenda) {
-            pointAgendas = data.objectives.Agenda;
-        }
-        if (pointAgendas.includes(currLaw)) {
+        let firstWord = currLaw.split(' ')[0];
+        if (firstWord === "Mutiny" || firstWord === "Seed") {
             continue;
         }
         if (playerLaws.includes(currLaw)) {
-            // element.classList.remove('agenda');
             element.classList.add(`elected-${playerCol}`);
         }
     }
