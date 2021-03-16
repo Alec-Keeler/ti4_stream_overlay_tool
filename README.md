@@ -40,9 +40,10 @@ Update 3 (Mar 14, 2021)
         H = Hazardous
         L = Legendary
 
-Update 4 (Mar , 2021)
+Update 4 (Mar 16, 2021)
     * Added additional styling and information to front page.
     * Added additional spacing between elements on the game display page.
+    * Added images/icons to the Resource Overview component for slightly easier readability. 
     * New Feature: Law Overview component fully functional.
         Notes: Laws assigned to a specific player will be colored in with the player's color.
     

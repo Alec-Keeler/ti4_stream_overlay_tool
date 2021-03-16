@@ -22,6 +22,14 @@ let updates = [
         change4: "Fixed Tech Overview component to display Unchosen instead of undefined before players choose factions.",
         change5: "New Feature: Resource Overview component fully functional.",
         featureNotes: ["This component uses several abbreviations.", "A = Available", "T = Total", "TGs = Trade Goods", "Cmdts = Commodities", "SOs = Secret Objectives (this only counts unscored SOs in hand)", "ACs = Action Cards", "B = Blue (tech skip)", "G = Green (tech skip)", "R = Red (tech skip)", "Y = Yellow (tech skip)", "C = Cultural", "I = Industrial", "H = Hazardous", "L = Legendary"]
+    },
+    {
+        date: "Update 4 (Mar 16, 2021)",
+        change1: "Added additional styling and information to front page.",
+        change2: "Added additional spacing between elements on the game display page.",
+        change3: "Added images/icons to the Resource Overview component for slightly easier readability.",
+        change4: "Law Overview component fully functional.",
+        featureNotes: ["Laws assigned to a specific player will be colored in with the player's color."]
     }
 ]
 
