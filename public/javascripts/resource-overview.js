@@ -42,13 +42,16 @@ function updateInfluences(data) {
 //This function will update the trade good cells
 function updateTrade(data) {
     let players = data.players;
+    let tgEle = "<img src='/images/tradegood.jpg' class='icon'/>"
+    let commEle = "<img src='/images/commodity.jpg' class='icon'/>"
+    // let testEle = "<div>test</div>"
     for (let i = 0; i < players.length; i++) {
         let player = players[i];
         let color = player.color;
         let tradeGoods = player.tradeGoods;
         let commodities = player.commodities;
         let ele = document.getElementById(`trade-${color}`);
-        ele.innerHTML = `TGs:${tradeGoods}/Cmdts:${commodities}`;
+        ele.innerHTML = `${tgEle}: ${tradeGoods} / ${commEle}: ${commodities}`;
     }
 }
 
@@ -122,6 +125,10 @@ function updateHeroStatus(data) {
 //This function will update the tech skip cells
 function updateSkips(data) {
     let players = data.players;
+    let blueEle = "<img src='/images/blueskip.jpg' class='skip'/>"
+    let greenEle = "<img src='/images/greenskip.jpg' class='skip'/>"
+    let redEle = "<img src='/images/redskip.jpg' class='skip'/>"
+    let yellowEle = "<img src='/images/yellowskip.jpg' class='skip'/>"
     for (let i = 0; i < players.length; i++) {
         let player = players[i];
         let color = player.color;
@@ -130,13 +137,29 @@ function updateSkips(data) {
         let red = player.planetTotals.techs.red;
         let yellow = player.planetTotals.techs.yellow;
         let ele = document.getElementById(`skips-${color}`);
-        ele.innerHTML = `B:${blue}/G:${green}/R:${red}/Y:${yellow}`;
+        // ele.innerHTML = `B:${blue}/G:${green}/R:${red}/Y:${yellow}`;
+        for (let j = 0; j < blue; j++) {
+            ele.innerHTML = ele.innerHTML + blueEle;
+        }
+        for (let j = 0; j < green; j++) {
+            ele.innerHTML = ele.innerHTML + greenEle;
+        }
+        for (let j = 0; j < red; j++) {
+            ele.innerHTML = ele.innerHTML + redEle;
+        }
+        for (let j = 0; j < yellow; j++) {
+            ele.innerHTML = ele.innerHTML + yellowEle;
+        }
     }
 }
 
 //This function will update the trait cells
 function updateTraits(data) {
     let players = data.players;
+    let indusEle = "<img src='/images/industrial-icon.jpg' class='skip'/>"
+    let hazEle = "<img src='/images/hazardous-icon.jpg' class='skip'/>"
+    let cultEle = "<img src='/images/cultural-icon.jpg' class='skip'/>"
+    let legendEle = "<img src='/images/legendary.png' class='skip'/>"
     for (let i = 0; i < players.length; i++) {
         let player = players[i];
         let color = player.color;
@@ -145,7 +168,7 @@ function updateTraits(data) {
         let red = player.planetTotals.traits.hazardous;
         let legendaries = player.planetTotals.legendary
         let ele = document.getElementById(`traits-${color}`);
-        ele.innerHTML = `C:${blue}/I:${green}/H:${red}/L:${legendaries}`;
+        ele.innerHTML = `${cultEle}${blue}/${indusEle}${green}/${hazEle}${red}/${legendEle}${legendaries}`;
     }
 }
 
