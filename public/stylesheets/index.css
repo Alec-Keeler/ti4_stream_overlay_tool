@@ -3,9 +3,48 @@ h1 {
     font-size: 35px;
 }
 
+#inst-and-sidepanel-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#side-panel {
+    margin-top: 5%;
+    width: 30%;
+    max-height: 450px;
+    /* flex-wrap: nowrap; */
+    overflow-y: scroll;
+}
+
+.update-header {
+    font-size: 16px;
+    padding: 4px;
+}
+
+.update-content {
+    font-size: 12px
+}
+
+.feature-note {
+    margin-left: 15%;
+}
+
+.update-title {
+    text-align: center;
+    font-size: 18px;
+    text-decoration: underline;
+}
+
+#instruction-container {
+    border: 1px solid white;
+    width: 50%;
+    border-radius: 5px;
+}
+
 #instruction-container > div, li {
     font-size: 20px;
     /* font-family: Arial, Helvetica, sans-serif; */
+    margin: 3px;
 }
 
 #other-container {
@@ -19,6 +58,7 @@ h1 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
 }
 
 #page-container > div, li {
@@ -54,4 +94,11 @@ button {
 
 .main-display {
     background: #6e7785;
+}
+
+#main-display-container {
+}
+
+#main-display-container > div {
+    margin: 10px;
 }

@@ -5,14 +5,17 @@ append head
   link(rel="stylesheet" href="/stylesheets/index.css")
   //- add page specific js
   script(src="/javascripts/home-page.js" type="module" defer)
+  script(src="/javascripts/load-update-info.js" type="module" defer)
 
 block content
   div#page-container
     h1= title
-    div#instruction-container
-      div= instructionHeader
-      each instruction in instructions
-        li= instruction
+    div#inst-and-sidepanel-container
+      div#instruction-container
+        div= instructionHeader
+        each instruction in instructions
+          li= instruction
+      div#side-panel
     div#other-container
       div#get-key-container
         button(type="button" id="get-key-btn") Get Your Key
@@ -20,13 +23,13 @@ block content
         div#tts-display.key-display The TTS Command Will Appear Here
       form(action='/display_game' method='POST' id="enter-key-form-container")
         input(type='hidden' name='_csrf' value=csrfToken)
-        input(type='text' name='gameKey' placeholder="Enter Your Game Key" id="enter-key-field" class="input-field" required)
         button(type='submit' value='Get Game Data' id="enter-key-btn") Get Game Data
-    div#footer-container
-          div Created by Alec "Root" Keeler
-          a(href="https://github.com/Alec-Keeler/ti4_stream_overlay_tool") GitHub
-          a(href="https://www.linkedin.com/in/alec-keeler-a8499083/") LinkedIn
-          div Special Thanks to "Darrell", "Milty", "ThatRobHuman", and Paul Saunders
+        input(type='text' name='gameKey' placeholder="Enter Your Game Key" id="enter-key-field" class="input-field" required)
+  div#footer-container
+        div Created by Alec "Root" Keeler
+        a(href="https://github.com/Alec-Keeler/ti4_stream_overlay_tool") GitHub
+        a(href="https://www.linkedin.com/in/alec-keeler-a8499083/") LinkedIn
+        div Special Thanks to "Darrell", "Milty", "ThatRobHuman", and Paul Saunders
   //- form(action='/game_collection' method="POST")
   //-   input(type='hidden' name='_csrf' value=csrfToken)
   //-   input(type='text' name='collName' placeholder="Enter a name for your collection of games" required)

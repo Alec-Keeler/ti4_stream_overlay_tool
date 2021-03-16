@@ -39,4 +39,16 @@ Update 3 (Mar 14, 2021)
         I = Industrial
         H = Hazardous
         L = Legendary
+
+Update 4 (Mar , 2021)
+    * Added additional styling and information to front page.
+    * Added additional spacing between elements on the game display page.
+    * New Feature: Law Overview component fully functional.
+        Notes: Laws assigned to a specific player will be colored in with the player's color.
     
+
+
+To-Dos:
+Add image icons to resource overview component in place of letters
+Look into browser capture
+Add buttons to display images on front page with sample displays, maybe as modals???? Check IMERSE project for how I made JS modal there.
