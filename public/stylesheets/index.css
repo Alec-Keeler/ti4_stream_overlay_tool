@@ -9,7 +9,7 @@ h1 {
 }
 
 #side-panel {
-    margin-top: 5%;
+    /* margin-top: 25px; */
     width: 30%;
     max-height: 450px;
     /* flex-wrap: nowrap; */
@@ -84,6 +84,7 @@ button {
     padding: 20px;
     background: #6e7785;
     color: #6EC1E4;
+    width: 100%;
 }
 
 .input-field {
