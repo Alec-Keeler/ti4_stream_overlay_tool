@@ -1,7 +1,7 @@
 #resources-overview {
     width: 750px;
     /* height: 375px; */
-    height: 345px;
+    height: 350px;
     background: #061738;
     color: white;
     text-align: center;
@@ -29,14 +29,14 @@
     border-right: 2px solid black;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
-    padding: 0px;
+    /* padding: 0px; */
     font-size: 14px;
 }
 
 .asset-header {
     width: 110px;
     text-align: center;
-    padding: 0px;
+    /* padding: 0px; */
 }
 
 .header-col-White {
@@ -56,4 +56,13 @@
 }
 .header-col-Green {
  color: #00a14b;
+}
+
+.icon {
+    width: 18px;
+    height: 18px;
+}
+.skip {
+    width: 12px;
+    height: 18px;
 }
