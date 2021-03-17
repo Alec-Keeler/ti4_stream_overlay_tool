@@ -160,6 +160,7 @@ function updateSkips(data) {
         let red = player.planetTotals.techs.red;
         let yellow = player.planetTotals.techs.yellow;
         let ele = document.getElementById(`skips-${color}`);
+        ele.innerHTML = '';
         // ele.innerHTML = `B:${blue}/G:${green}/R:${red}/Y:${yellow}`;
         for (let j = 0; j < blue; j++) {
             ele.innerHTML = ele.innerHTML + blueEle;
