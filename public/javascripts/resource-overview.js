@@ -22,7 +22,7 @@ function updateResources(data) {
         let available = player.planetTotals.resources.avail;
         let total = player.planetTotals.resources.total;
         let ele = document.getElementById(`resource-${color}`);
-        ele.innerHTML = `A: ${available} / T: ${total}`;
+        ele.innerHTML = `${available} / ${total}`;
     }
 }
 
@@ -35,15 +35,15 @@ function updateInfluences(data) {
         let available = player.planetTotals.influence.avail;
         let total = player.planetTotals.influence.total;
         let ele = document.getElementById(`influence-${color}`);
-        ele.innerHTML = `A: ${available} / T: ${total}`;
+        ele.innerHTML = `${available} / ${total}`;
     }
 }
 
 //This function will update the trade good cells
 function updateTrade(data) {
     let players = data.players;
-    let tgEle = "<img src='/images/tradegood.jpg' class='icon'/>"
-    let commEle = "<img src='/images/commodity.jpg' class='icon'/>"
+    let tgEle = "<img src='/images/tradegood.png' class='icon'/>"
+    let commEle = "<img src='/images/commodity.png' class='icon'/>"
     // let testEle = "<div>test</div>"
     for (let i = 0; i < players.length; i++) {
         let player = players[i];
@@ -65,7 +65,7 @@ function updateTokens(data) {
         let fleet = player.commandTokens.fleet;
         let strategy = player.commandTokens.strategy;
         let ele = document.getElementById(`tokens-${color}`);
-        ele.innerHTML = `T: ${tactics} / F: ${fleet} / S: ${strategy}`;
+        ele.innerHTML = `${tactics} / ${fleet} / ${strategy}`;
     }
 }
 
@@ -84,7 +84,7 @@ function updateHand(data) {
             actions = 0;
         }
         let ele = document.getElementById(`hand-${color}`);
-        ele.innerHTML = `SOs: ${secrets} / ACs: ${actions}`;
+        ele.innerHTML = `${secrets} / ${actions}`;
     }
 }
 
@@ -125,10 +125,10 @@ function updateHeroStatus(data) {
 //This function will update the tech skip cells
 function updateSkips(data) {
     let players = data.players;
-    let blueEle = "<img src='/images/blueskip.jpg' class='skip'/>"
-    let greenEle = "<img src='/images/greenskip.jpg' class='skip'/>"
-    let redEle = "<img src='/images/redskip.jpg' class='skip'/>"
-    let yellowEle = "<img src='/images/yellowskip.jpg' class='skip'/>"
+    let blueEle = "<img src='/images/blueskip.png' class='skip'/>"
+    let greenEle = "<img src='/images/greenskip.png' class='skip'/>"
+    let redEle = "<img src='/images/redskip.png' class='skip'/>"
+    let yellowEle = "<img src='/images/yellowskip.png' class='skip'/>"
     for (let i = 0; i < players.length; i++) {
         let player = players[i];
         let color = player.color;
@@ -156,9 +156,9 @@ function updateSkips(data) {
 //This function will update the trait cells
 function updateTraits(data) {
     let players = data.players;
-    let indusEle = "<img src='/images/industrial-icon.jpg' class='skip'/>"
-    let hazEle = "<img src='/images/hazardous-icon.jpg' class='skip'/>"
-    let cultEle = "<img src='/images/cultural-icon.jpg' class='skip'/>"
+    let indusEle = "<img src='/images/industrial-icon.png' class='skip'/>"
+    let hazEle = "<img src='/images/hazardous-icon.png' class='skip'/>"
+    let cultEle = "<img src='/images/cultural-icon.png' class='skip'/>"
     let legendEle = "<img src='/images/legendary.png' class='skip'/>"
     for (let i = 0; i < players.length; i++) {
         let player = players[i];
