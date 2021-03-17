@@ -46,6 +46,9 @@ Update 4 (Mar 16, 2021)
     * Added images/icons to the Resource Overview component for slightly easier readability. 
     * New Feature: Law Overview component fully functional.
         Notes: Laws assigned to a specific player will be colored in with the player's color.
+
+Update 5 (Mar 17, 2021)
+    * Updated the Resource Overview component with cleaner icons and improved readability, and added a row for Alliances held by each player.
     
 
 

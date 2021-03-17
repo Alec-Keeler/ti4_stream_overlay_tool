@@ -42,8 +42,10 @@ function updateInfluences(data) {
 //This function will update the trade good cells
 function updateTrade(data) {
     let players = data.players;
-    let tgEle = "<img src='/images/tradegood.png' class='icon'/>"
-    let commEle = "<img src='/images/commodity.png' class='icon'/>"
+    let header = document.getElementsByClassName('trade-header')[0]
+    let tgEle = "<img src='/images/tradegood.png' class='tg'/>"
+    let commEle = "<img src='/images/commodity.png' class='tg'/>"
+    // header.innerHTML = `${tgEle} / ${commEle}`
     // let testEle = "<div>test</div>"
     for (let i = 0; i < players.length; i++) {
         let player = players[i];
@@ -51,7 +53,8 @@ function updateTrade(data) {
         let tradeGoods = player.tradeGoods;
         let commodities = player.commodities;
         let ele = document.getElementById(`trade-${color}`);
-        ele.innerHTML = `${tgEle}: ${tradeGoods} / ${commEle}: ${commodities}`;
+        ele.innerHTML = `${tradeGoods}${tgEle}     ${commodities}${commEle}`;
+        // ele.innerHTML = `${tradeGoods} / ${commodities}`
     }
 }
 
@@ -122,6 +125,26 @@ function updateHeroStatus(data) {
     }
 }
 
+//This function will update the Alliance cells
+function updateAlliances(data) {
+    let players = data.players;
+    for (let i = 0; i < players.length; i++) {
+        const alliances = players[i].alliances;
+        let color = players[i].color
+        let mainEle = document.getElementById(`alliance-${color}`)
+        while (mainEle.lastElementChild) {
+            mainEle.removeChild(mainEle.lastElementChild);
+        }
+        for (let j = 0; j < alliances.length; j++) {
+            const alliance = alliances[j];
+            let allEle = document.createElement('div');
+            allEle.setAttribute('class', `alliance-${alliance}`);
+            allEle.classList.add('alliance-block');
+            mainEle.appendChild(allEle);
+        }
+    }
+}
+
 //This function will update the tech skip cells
 function updateSkips(data) {
     let players = data.players;
@@ -168,7 +191,7 @@ function updateTraits(data) {
         let red = player.planetTotals.traits.hazardous;
         let legendaries = player.planetTotals.legendary
         let ele = document.getElementById(`traits-${color}`);
-        ele.innerHTML = `${cultEle}${blue}/${indusEle}${green}/${hazEle}${red}/${legendEle}${legendaries}`;
+        ele.innerHTML = `${cultEle}${blue} ${indusEle}${green} ${hazEle}${red} ${legendEle}${legendaries}`;
     }
 }
 
@@ -184,5 +207,6 @@ export function updateResourceOverview(data) {
     updateHeroStatus(data);
     updateSkips(data);
     updateTraits(data);
+    updateAlliances(data);
     // updateLegendaries(data);
 }

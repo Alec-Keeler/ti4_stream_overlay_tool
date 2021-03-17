@@ -30,6 +30,11 @@ let updates = [
         change3: "Added images/icons to the Resource Overview component for slightly easier readability.",
         change4: "Law Overview component fully functional.",
         featureNotes: ["Laws assigned to a specific player will be colored in with the player's color."]
+    },
+    {
+        date: "Update 5 (Mar 17, 2021)",
+        change1: "Updated the Resource Overview component with cleaner icons and improved readability, and added a row for Alliances held by each player.",
+        otherThing: "Happy St. Patrick's Day!"
     }
 ]
 

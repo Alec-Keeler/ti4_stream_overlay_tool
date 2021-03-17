@@ -1,7 +1,7 @@
 #resources-overview {
     width: 750px;
-    /* height: 375px; */
-    height: 350px;
+    height: 390px;
+    /* height: 360px; */
     background: #061738;
     color: white;
     text-align: center;
@@ -33,6 +33,10 @@
     font-size: 14px;
 }
 
+.bigger-nums {
+    font-size: 18px;
+}
+
 .asset-header {
     width: 110px;
     text-align: center;
@@ -55,7 +59,7 @@
     color: #e46d72;
 }
 .header-col-Green {
- color: #00a14b;
+    color: #00a14b;
 }
 
 .icon {
@@ -65,4 +69,39 @@
 .skip {
     width: 12px;
     height: 18px;
+}
+
+.tg {
+    width: 20px;
+    height: 20px;
+    /* margin-top: 4px; */
+}
+
+.alliance-block {
+    height: 18px;
+    width: 18px;
+    margin: 2px;
+    border-radius: 4px;
+}
+
+.alliance-card {
+    display: flex;
+}
+.alliance-White {
+    background: white;
+}
+.alliance-Blue {
+    background: #6EC1E4;
+}
+.alliance-Purple {
+    background: #9161a8;
+}
+.alliance-Yellow {
+    background: #ffde17;
+}
+.alliance-Red {
+    background: #e46d72;
+}
+.alliance-Green {
+    background: #00a14b;
 }
