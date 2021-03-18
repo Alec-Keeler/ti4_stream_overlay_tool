@@ -53,6 +53,7 @@ Update 5 (Mar 17, 2021)
 Update 6 (Mar 18, 2021)
     * Overlay functionality is now complete!  This is version 1.0!
     * Site now makes a fetch call for data every 20 seconds instead of 3.  I used the shorter time for easier testing, which is no longer necessary!  You will notice that it takes 20 seconds for most of the components to populate with data the first time.
+    * Fixed several bugs that can occurr early in games before objectives are scored by adding a variety of conditionals.
     * New Feature: Rotating Resource component fully functional.  This component changes the player whose details it shows every 20 seconds.
 
 

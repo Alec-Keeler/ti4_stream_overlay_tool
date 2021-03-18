@@ -9,6 +9,7 @@ append head
   link(rel='stylesheet' href='/stylesheets/resource-overview.css')
   link(rel='stylesheet' href='/stylesheets/law-overview.css')
   link(rel='stylesheet' href='/stylesheets/rotating-resource.css')
+  link(rel='stylesheet' href='/stylesheets/rotating-tech.css')
   //- add page specific js
 
   script(src="/javascripts/index.js" type="module" defer)
@@ -295,18 +296,10 @@ block content
               td#traits-Yellow.asset-card
               td#traits-Red.asset-card
               td#traits-Green.asset-card
-            //- tr
-            //-   td#row-header.row-header Legendaries
-            //-   td#legends-White.asset-card
-            //-   td#legends-Blue.asset-card
-            //-   td#legends-Purple.asset-card
-            //-   td#legends-Yellow.asset-card
-            //-   td#legends-Red.asset-card
-            //-   td#legends-Green.asset-card
       div#law-overview Law Overview
         div#law-container
-      div#rotating-tech
-        div#rotating-tech-container Rotating Tech
+      div#rotating-tech Rotating Tech
+        div#rotating-tech-container 
       div#rotating-resources
         div#rotating-resources-container 
           div#rot-res-faction Rotating Resources
