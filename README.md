@@ -50,9 +50,12 @@ Update 4 (Mar 16, 2021)
 Update 5 (Mar 17, 2021)
     * Updated the Resource Overview component with cleaner icons and improved readability, and added a row for Alliances held by each player.
     
+Update 6 (Mar 18, 2021)
+    * Overlay functionality is now complete!  This is version 1.0!
+    * Site now makes a fetch call for data every 20 seconds instead of 3.  I used the shorter time for easier testing, which is no longer necessary!  You will notice that it takes 20 seconds for most of the components to populate with data the first time.
+    * New Feature: Rotating Resource component fully functional.  This component changes the player whose details it shows every 20 seconds.
 
 
 To-Dos:
-Add image icons to resource overview component in place of letters
 Look into browser capture
 Add buttons to display images on front page with sample displays, maybe as modals???? Check IMERSE project for how I made JS modal there.

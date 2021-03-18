@@ -8,6 +8,7 @@ append head
   link(rel='stylesheet' href='/stylesheets/points-overview.css')
   link(rel='stylesheet' href='/stylesheets/resource-overview.css')
   link(rel='stylesheet' href='/stylesheets/law-overview.css')
+  link(rel='stylesheet' href='/stylesheets/rotating-resource.css')
   //- add page specific js
 
   script(src="/javascripts/index.js" type="module" defer)
@@ -225,7 +226,7 @@ block content
               td#influence-Red.asset-card.bigger-nums
               td#influence-Green.asset-card.bigger-nums
             tr
-              td#row-header.row-header.trade-header TGs/Comms
+              td#row-header.row-header.trade-header Trade
               td#trade-White.asset-card.bigger-nums
               td#trade-Blue.asset-card.bigger-nums
               td#trade-Purple.asset-card.bigger-nums
@@ -305,9 +306,24 @@ block content
       div#law-overview Law Overview
         div#law-container
       div#rotating-tech
-        p Rotating Tech
+        div#rotating-tech-container Rotating Tech
       div#rotating-resources
-        p Rotating Resources
-      div#rotating-laws
-        p Rotating Laws
+        div#rotating-resources-container 
+          div#rot-res-faction Rotating Resources
+          table
+            tr
+              td#rot-res-resources Resources
+              td#rot-res-resources-value.rot-res-card
+            tr
+              td#rot-res-influence Influence
+              td#rot-res-influence-value.rot-res-card
+            tr
+              td#rot-res-trade Trade
+              td#rot-res-trade-value.rot-res-card
+            tr
+              td#rot-res-tokens Tokens
+              td#rot-res-tokens-value.rot-res-card
+            tr
+              td#rot-res-hand SOs / ACs
+              td#rot-res-hand-value.rot-res-card
     
