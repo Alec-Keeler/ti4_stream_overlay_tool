@@ -69,7 +69,7 @@ window.addEventListener('DOMContentLoaded', event => {
                     initExtract(data);
                     //deprecated from points-overview-dom
                     // initLaw(data);
-                    loop = setInterval(loopFetch, 3000);
+                    loop = setInterval(loopFetch, 20000);
                 });
             });
     });

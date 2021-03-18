@@ -54,9 +54,17 @@ Update 6 (Mar 18, 2021)
     * Overlay functionality is now complete!  This is version 1.0!
     * Site now makes a fetch call for data every 20 seconds instead of 3.  I used the shorter time for easier testing, which is no longer necessary!  You will notice that it takes 20 seconds for most of the components to populate with data the first time.
     * Fixed several bugs that can occurr early in games before objectives are scored by adding a variety of conditionals.
+    * Added "x3n d0g" to my list of thanks for the help with art assets.
+    * Big thanks to everyone on that list (Found below!) and several others for their help and advice on this project, especially Darrell.
     * New Feature: Rotating Resource component fully functional.  This component changes the player whose details it shows every 20 seconds.
+    * New Feature: Rotating Tech component fully functional.  This component will also change every 20 seconds.
+
+
+ART CREDIT NOTE:  All art assets come from Twilight Imperium: Fourth Edition and belong to Fantasy Flight Games
 
 
 To-Dos:
+Add X3nd0g to thanks
+revisit instruction list
 Look into browser capture
 Add buttons to display images on front page with sample displays, maybe as modals???? Check IMERSE project for how I made JS modal there.

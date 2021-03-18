@@ -1,6 +1,61 @@
+.tech-Blue {
+    color: #6EC1E4;
+}
+
+.tech-Purple {
+    color: #9161a8;
+}
+
+.tech-Yellow {
+    color: #ffde17;
+}
+
+.tech-Red {
+    color: #e46d72;
+}
+
+.tech-White {
+    color: white;
+}
+
+.tech-Green {
+    color: #00a14b;
+}
+
+.rot-tech-White {
+    color: white;
+    font-size: 22px;
+
+}
+.rot-tech-Blue {
+    color: #6EC1E4;
+    font-size: 22px;
+
+}
+.rot-tech-Purple {
+    color: #9161a8;
+    font-size: 22px;
+
+}
+.rot-tech-Yellow {
+    color: #ffde17;
+    font-size: 22px;
+
+}
+.rot-tech-Red {
+    color: #e46d72;
+    font-size: 22px;
+
+}
+.rot-tech-Green {
+    color: #00a14b;
+    font-size: 22px;
+
+}
+
 #rotating-tech {
-    width: 200px;
-    height: 350px;
+    width: 175px;
+    height: 280px;
     background: #061738;
     color: white;
     text-align: center;

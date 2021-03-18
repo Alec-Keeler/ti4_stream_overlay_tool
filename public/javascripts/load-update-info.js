@@ -35,6 +35,17 @@ let updates = [
         date: "Update 5 (Mar 17, 2021)",
         change1: "Updated the Resource Overview component with cleaner icons and improved readability, and added a row for Alliances held by each player.",
         otherThing: "Happy St. Patrick's Day!"
+    },
+    {
+        date: "Update 6 (Mar 18, 2021) VERSION 1!",
+        change1: "Overlay functionality is now complete!  This is version 1.0!",
+        change2: "Site now makes a fetch call for data every 20 seconds instead of 3.  I used the shorter time for easier testing, which is no longer necessary!  You will notice that it takes 20 seconds for most of the components to populate with data the first time.",
+        change3: "Fixed several bugs that can occurr early in games before objectives are scored by adding a variety of conditionals.",
+        chagne4: "Added 'x3n d0g' to my list of thanks for the help with art assets.",
+        change5: "Big thanks to everyone on that list (Found below!) and several others for their help and advice on this project, especially Darrell.",
+        change6: "New Feature: Rotating Resource component fully functional.  This component changes the player whose details it shows every 20 seconds.",
+        change7: "New Feature: Rotating Tech component fully functional.  This component will also change every 20 seconds.",
+    change8: "Planned additions: Update to front page including images of sample data; Game data collection and aggregation"
     }
 ]
 

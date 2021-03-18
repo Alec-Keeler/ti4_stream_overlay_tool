@@ -181,14 +181,15 @@ function determinePlayerNum() {
 function getPlayerTechs(player) {
     let techList = player.technologies;
     let parentEl = document.getElementById('rotating-tech-container')
+    console.log(parentEl)
     for (let i = 0; i < techList.length; i++) {
         const tech = techList[i];
         let techEl = document.createElement('div');
-        let techName = techs.tech;
+        let techName = techs[tech];
         if (techName === null) {
             continue;
         }
-        let techCol = techColor.tech;
+        let techCol = techColor[tech];
         techEl.innerHTML = techName;
         techEl.setAttribute('class', `tech-${techCol}`);
         parentEl.appendChild(techEl);
@@ -199,9 +200,9 @@ function getPlayerTechs(player) {
 function getFactionName(player) {
     let faction = player.factionShort;
     let color = player.color;
-    let ele = document.getElementById('rotating-tech');
+    let ele = document.getElementById('rotating-tech-container');
     ele.innerHTML = faction;
-    ele.setAttribute('class', `rot-res-${color}`)
+    ele.setAttribute('class', `rot-tech-${color}`)
 }
 
 //This function will remove the previous player's tech dom

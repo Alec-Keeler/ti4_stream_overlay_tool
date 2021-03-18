@@ -97,8 +97,13 @@ button {
 }
 
 #main-display-container {
+    
 }
 
 #main-display-container > div {
     margin: 10px;
+}
+
+#bottom-padding {
+    height: 10px;
 }
