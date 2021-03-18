@@ -5,6 +5,7 @@ import { updatePointsBoard } from "./points-overview-dom.js"
 import { updateResourceOverview } from "./resource-overview.js"
 import { updateLawOverview } from "./law-overview.js"
 import { updateRotatingResources } from "./rotating-resources.js"
+import { updateRotatingTech } from "./rotating-tech.js"
 //variables for testing:
 let loop;
 let count = 1
@@ -36,6 +37,7 @@ const loopFetch = async () => {
                     updateResourceOverview(data);
                     updateLawOverview(data);
                     updateRotatingResources(data);
+                    updateRotatingTech(data);
                 });
             // } else if (response.status === 304) {
 
@@ -67,7 +69,7 @@ window.addEventListener('DOMContentLoaded', event => {
                     initExtract(data);
                     //deprecated from points-overview-dom
                     // initLaw(data);
-                    loop = setInterval(loopFetch, 3000);
+                    loop = setInterval(loopFetch, 20000);
                 });
             });
     });
