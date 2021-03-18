@@ -1,0 +1,36 @@
+#rotating-resources-container {
+    width: 165px;
+    height: 185px;
+    background: #061738;
+    color: white;
+    text-align: center;
+}
+
+.rot-res-card {
+    width: 80px;
+    text-align: center;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    font-size: 14px;
+}
+
+.rot-res-White {
+    color: white;
+}
+.rot-res-Blue {
+    color: #6EC1E4;
+}
+.rot-res-Purple {
+    color: #9161a8;
+}
+.rot-res-Yellow {
+    color: #ffde17;
+}
+.rot-res-Red {
+    color: #e46d72;
+}
+.rot-res-Green {
+    color: #00a14b;
+}
