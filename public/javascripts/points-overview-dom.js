@@ -69,10 +69,12 @@ function playerHasScoredPOChecker(player) {
     Object.keys(publicObs).forEach(function(key) {
         let publicNum = key.split('public')[1]
         let playerCol = player.color
-        if (player.objectives.includes(publicObs[key])) {
-            let currObjEl = document.getElementById(`point${playerCol}${publicNum}`)
-            if (!currObjEl.classList.contains(publicObs[key])) {
-                currObjEl.classList.add(`scored-${playerCol}`)
+        if (player.objectives) {
+            if (player.objectives.includes(publicObs[key])) {
+                let currObjEl = document.getElementById(`point${playerCol}${publicNum}`)
+                if (!currObjEl.classList.contains(publicObs[key])) {
+                    currObjEl.classList.add(`scored-${playerCol}`)
+                }
             }
         }
     })
@@ -95,10 +97,12 @@ function checkForImpRiders(players) {
         let player = players[i];
         let playerObs = player.objectives;
         // console.log(playerObs)
-        for (let j = 0; j < playerObs.length; j++) {
-            let objective = playerObs[j];
-            if (objective === "Imperial Rider") {
-                playersWhoScoredIR.push(player.color);
+        if (playerObs) {
+            for (let j = 0; j < playerObs.length; j++) {
+                let objective = playerObs[j];
+                if (objective === "Imperial Rider") {
+                    playersWhoScoredIR.push(player.color);
+                }
             }
         }
     }
@@ -301,16 +305,20 @@ function checkForRelics(data) {
 function checkForSecrets(player, data) {
     let allScoredSecrets = data.objectives["Secret Objectives"];
     let playerScoredObs = player.objectives
-    for (let i = 0; i < playerScoredObs.length; i++) {
-        const objective = playerScoredObs[i];
-        if (allScoredSecrets.includes(objective)) {
-            let parentEl = document.getElementById("secrets-container");
-            let secretEl = document.createElement('div');
-            let abrevObj = secretDescriptions[objective];
-            secretEl.innerHTML = abrevObj;
-            secretEl.setAttribute('class', `scored-${player.color}`);
-            secretEl.classList.add('secret-card')
-            parentEl.appendChild(secretEl);
+    if (playerScoredObs) {
+        for (let i = 0; i < playerScoredObs.length; i++) {
+            const objective = playerScoredObs[i];
+            if (allScoredSecrets) {
+                if (allScoredSecrets.includes(objective)) {
+                    let parentEl = document.getElementById("secrets-container");
+                    let secretEl = document.createElement('div');
+                    let abrevObj = secretDescriptions[objective];
+                    secretEl.innerHTML = abrevObj;
+                    secretEl.setAttribute('class', `scored-${player.color}`);
+                    secretEl.classList.add('secret-card')
+                    parentEl.appendChild(secretEl);
+                }
+            }
         }
     }
 }
@@ -363,15 +371,17 @@ function supportPointChecker(data) {
     for (let i = 0; i < data.players.length; i++) {
         const player = data.players[i];
         let playersPoints = player.objectives;
-        for (let j = 0; j < playersPoints.length; j++) {
-            const objective = playersPoints[j];
-            let firstWord = objective.split(' ')[0]
-            if (firstWord === "Support") {
-                let supporterColor = objective.split(' ')[4];
-                let pointColor = player.color
-                supporterColor = extractSecretColor(supporterColor)
-                assignSecretPoint(supporterColor, pointColor)
-
+        if (playersPoints) {
+            for (let j = 0; j < playersPoints.length; j++) {
+                const objective = playersPoints[j];
+                let firstWord = objective.split(' ')[0]
+                if (firstWord === "Support") {
+                    let supporterColor = objective.split(' ')[4];
+                    let pointColor = player.color
+                    supporterColor = extractSecretColor(supporterColor)
+                    assignSecretPoint(supporterColor, pointColor)
+    
+                }
             }
         }
     }

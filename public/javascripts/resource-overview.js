@@ -22,7 +22,7 @@ function updateResources(data) {
         let available = player.planetTotals.resources.avail;
         let total = player.planetTotals.resources.total;
         let ele = document.getElementById(`resource-${color}`);
-        ele.innerHTML = `A: ${available} / T: ${total}`;
+        ele.innerHTML = `${available} / ${total}`;
     }
 }
 
@@ -35,20 +35,26 @@ function updateInfluences(data) {
         let available = player.planetTotals.influence.avail;
         let total = player.planetTotals.influence.total;
         let ele = document.getElementById(`influence-${color}`);
-        ele.innerHTML = `A: ${available} / T: ${total}`;
+        ele.innerHTML = `${available} / ${total}`;
     }
 }
 
 //This function will update the trade good cells
 function updateTrade(data) {
     let players = data.players;
+    let header = document.getElementsByClassName('trade-header')[0]
+    let tgEle = "<img src='/images/tradegood.png' class='tg'/>"
+    let commEle = "<img src='/images/commodity.png' class='tg'/>"
+    // header.innerHTML = `${tgEle} / ${commEle}`
+    // let testEle = "<div>test</div>"
     for (let i = 0; i < players.length; i++) {
         let player = players[i];
         let color = player.color;
         let tradeGoods = player.tradeGoods;
         let commodities = player.commodities;
         let ele = document.getElementById(`trade-${color}`);
-        ele.innerHTML = `TGs:${tradeGoods}/Cmdts:${commodities}`;
+        ele.innerHTML = `${tradeGoods}${tgEle}     ${commodities}${commEle}`;
+        // ele.innerHTML = `${tradeGoods} / ${commodities}`
     }
 }
 
@@ -62,7 +68,7 @@ function updateTokens(data) {
         let fleet = player.commandTokens.fleet;
         let strategy = player.commandTokens.strategy;
         let ele = document.getElementById(`tokens-${color}`);
-        ele.innerHTML = `T: ${tactics} / F: ${fleet} / S: ${strategy}`;
+        ele.innerHTML = `${tactics} / ${fleet} / ${strategy}`;
     }
 }
 
@@ -81,7 +87,7 @@ function updateHand(data) {
             actions = 0;
         }
         let ele = document.getElementById(`hand-${color}`);
-        ele.innerHTML = `SOs: ${secrets} / ACs: ${actions}`;
+        ele.innerHTML = `${secrets} / ${actions}`;
     }
 }
 
@@ -119,9 +125,33 @@ function updateHeroStatus(data) {
     }
 }
 
+//This function will update the Alliance cells
+function updateAlliances(data) {
+    let players = data.players;
+    for (let i = 0; i < players.length; i++) {
+        const alliances = players[i].alliances;
+        let color = players[i].color
+        let mainEle = document.getElementById(`alliance-${color}`)
+        while (mainEle.lastElementChild) {
+            mainEle.removeChild(mainEle.lastElementChild);
+        }
+        for (let j = 0; j < alliances.length; j++) {
+            const alliance = alliances[j];
+            let allEle = document.createElement('div');
+            allEle.setAttribute('class', `alliance-${alliance}`);
+            allEle.classList.add('alliance-block');
+            mainEle.appendChild(allEle);
+        }
+    }
+}
+
 //This function will update the tech skip cells
 function updateSkips(data) {
     let players = data.players;
+    let blueEle = "<img src='/images/blueskip.png' class='skip'/>"
+    let greenEle = "<img src='/images/greenskip.png' class='skip'/>"
+    let redEle = "<img src='/images/redskip.png' class='skip'/>"
+    let yellowEle = "<img src='/images/yellowskip.png' class='skip'/>"
     for (let i = 0; i < players.length; i++) {
         let player = players[i];
         let color = player.color;
@@ -130,13 +160,30 @@ function updateSkips(data) {
         let red = player.planetTotals.techs.red;
         let yellow = player.planetTotals.techs.yellow;
         let ele = document.getElementById(`skips-${color}`);
-        ele.innerHTML = `B:${blue}/G:${green}/R:${red}/Y:${yellow}`;
+        ele.innerHTML = '';
+        // ele.innerHTML = `B:${blue}/G:${green}/R:${red}/Y:${yellow}`;
+        for (let j = 0; j < blue; j++) {
+            ele.innerHTML = ele.innerHTML + blueEle;
+        }
+        for (let j = 0; j < green; j++) {
+            ele.innerHTML = ele.innerHTML + greenEle;
+        }
+        for (let j = 0; j < red; j++) {
+            ele.innerHTML = ele.innerHTML + redEle;
+        }
+        for (let j = 0; j < yellow; j++) {
+            ele.innerHTML = ele.innerHTML + yellowEle;
+        }
     }
 }
 
 //This function will update the trait cells
 function updateTraits(data) {
     let players = data.players;
+    let indusEle = "<img src='/images/industrial-icon.png' class='skip'/>"
+    let hazEle = "<img src='/images/hazardous-icon.png' class='skip'/>"
+    let cultEle = "<img src='/images/cultural-icon.png' class='skip'/>"
+    let legendEle = "<img src='/images/legendary.png' class='skip'/>"
     for (let i = 0; i < players.length; i++) {
         let player = players[i];
         let color = player.color;
@@ -145,7 +192,7 @@ function updateTraits(data) {
         let red = player.planetTotals.traits.hazardous;
         let legendaries = player.planetTotals.legendary
         let ele = document.getElementById(`traits-${color}`);
-        ele.innerHTML = `C:${blue}/I:${green}/H:${red}/L:${legendaries}`;
+        ele.innerHTML = `${cultEle}${blue} ${indusEle}${green} ${hazEle}${red} ${legendEle}${legendaries}`;
     }
 }
 
@@ -161,5 +208,6 @@ export function updateResourceOverview(data) {
     updateHeroStatus(data);
     updateSkips(data);
     updateTraits(data);
+    updateAlliances(data);
     // updateLegendaries(data);
 }

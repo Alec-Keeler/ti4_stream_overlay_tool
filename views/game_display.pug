@@ -8,6 +8,8 @@ append head
   link(rel='stylesheet' href='/stylesheets/points-overview.css')
   link(rel='stylesheet' href='/stylesheets/resource-overview.css')
   link(rel='stylesheet' href='/stylesheets/law-overview.css')
+  link(rel='stylesheet' href='/stylesheets/rotating-resource.css')
+  link(rel='stylesheet' href='/stylesheets/rotating-tech.css')
   //- add page specific js
 
   script(src="/javascripts/index.js" type="module" defer)
@@ -209,31 +211,31 @@ block content
               td#header-Red.asset-header.header-col-Red
               td#header-Green.asset-header.header-col-Green
             tr
-              td#row-header.row-header Resources
-              td#resource-White.asset-card
-              td#resource-Blue.asset-card
-              td#resource-Purple.asset-card
-              td#resource-Yellow.asset-card
-              td#resource-Red.asset-card
-              td#resource-Green.asset-card
+              td#row-header.row-header Resources Avail/Total
+              td#resource-White.asset-card.bigger-nums
+              td#resource-Blue.asset-card.bigger-nums
+              td#resource-Purple.asset-card.bigger-nums
+              td#resource-Yellow.asset-card.bigger-nums
+              td#resource-Red.asset-card.bigger-nums
+              td#resource-Green.asset-card.bigger-nums
             tr
-              td#row-header.row-header Influence
-              td#influence-White.asset-card
-              td#influence-Blue.asset-card
-              td#influence-Purple.asset-card
-              td#influence-Yellow.asset-card
-              td#influence-Red.asset-card
-              td#influence-Green.asset-card
+              td#row-header.row-header Influence Avail/Total
+              td#influence-White.asset-card.bigger-nums
+              td#influence-Blue.asset-card.bigger-nums
+              td#influence-Purple.asset-card.bigger-nums
+              td#influence-Yellow.asset-card.bigger-nums
+              td#influence-Red.asset-card.bigger-nums
+              td#influence-Green.asset-card.bigger-nums
             tr
-              td#row-header.row-header TGs/Comms
-              td#trade-White.asset-card
-              td#trade-Blue.asset-card
-              td#trade-Purple.asset-card
-              td#trade-Yellow.asset-card
-              td#trade-Red.asset-card
-              td#trade-Green.asset-card
+              td#row-header.row-header.trade-header Trade
+              td#trade-White.asset-card.bigger-nums
+              td#trade-Blue.asset-card.bigger-nums
+              td#trade-Purple.asset-card.bigger-nums
+              td#trade-Yellow.asset-card.bigger-nums
+              td#trade-Red.asset-card.bigger-nums
+              td#trade-Green.asset-card.bigger-nums
             tr
-              td#row-header.row-header Tokens
+              td#row-header.row-header Tokens T/F/S
               td#tokens-White.asset-card
               td#tokens-Blue.asset-card
               td#tokens-Purple.asset-card
@@ -265,6 +267,20 @@ block content
               td#hero-Red.asset-card
               td#hero-Green.asset-card
             tr
+              td#row-header.row-header Alliances
+              td.asset-card
+                div#alliance-White.alliance-card
+              td.asset-card
+                div#alliance-Blue.alliance-card
+              td.asset-card
+                div#alliance-Purple.alliance-card
+              td.asset-card
+                div#alliance-Yellow.alliance-card
+              td.asset-card
+                div#alliance-Red.alliance-card
+              td.asset-card
+                div#alliance-Green.alliance-card
+            tr
               td#row-header.row-header Tech Skips
               td#skips-White.asset-card
               td#skips-Blue.asset-card
@@ -280,20 +296,28 @@ block content
               td#traits-Yellow.asset-card
               td#traits-Red.asset-card
               td#traits-Green.asset-card
-            //- tr
-            //-   td#row-header.row-header Legendaries
-            //-   td#legends-White.asset-card
-            //-   td#legends-Blue.asset-card
-            //-   td#legends-Purple.asset-card
-            //-   td#legends-Yellow.asset-card
-            //-   td#legends-Red.asset-card
-            //-   td#legends-Green.asset-card
       div#law-overview Law Overview
         div#law-container
       div#rotating-tech
-        p Rotating Tech
+        div#rotating-tech-container Rotating Tech
       div#rotating-resources
-        p Rotating Resources
-      div#rotating-laws
-        p Rotating Laws
+        div#rotating-resources-container 
+          div#rot-res-faction Rotating Resources
+          table
+            tr
+              td#rot-res-resources Resources
+              td#rot-res-resources-value.rot-res-card
+            tr
+              td#rot-res-influence Influence
+              td#rot-res-influence-value.rot-res-card
+            tr
+              td#rot-res-trade Trade
+              td#rot-res-trade-value.rot-res-card
+            tr
+              td#rot-res-tokens Tokens
+              td#rot-res-tokens-value.rot-res-card
+            tr
+              td#rot-res-hand SOs / ACs
+              td#rot-res-hand-value.rot-res-card
+      div#bottom-padding
     

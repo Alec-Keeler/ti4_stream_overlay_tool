@@ -40,15 +40,29 @@ Update 3 (Mar 14, 2021)
         H = Hazardous
         L = Legendary
 
-Update 4 (Mar , 2021)
+Update 4 (Mar 16, 2021)
     * Added additional styling and information to front page.
     * Added additional spacing between elements on the game display page.
+    * Added images/icons to the Resource Overview component for slightly easier readability. 
     * New Feature: Law Overview component fully functional.
         Notes: Laws assigned to a specific player will be colored in with the player's color.
+
+Update 5 (Mar 17, 2021)
+    * Updated the Resource Overview component with cleaner icons and improved readability, and added a row for Alliances held by each player.
     
+Update 6 (Mar 18, 2021)
+    * Overlay functionality is now complete!  This is version 1.0!
+    * Site now makes a fetch call for data every 20 seconds instead of 3.  I used the shorter time for easier testing, which is no longer necessary!  You will notice that it takes 20 seconds for most of the components to populate with data the first time.
+    * Fixed several bugs that can occurr early in games before objectives are scored by adding a variety of conditionals.
+    * Added "x3n d0g" to my list of thanks for the help with art assets.
+    * Big thanks to everyone on that list (Found below!) and several others for their help and advice on this project, especially Darrell.
+    * New Feature: Rotating Resource component fully functional.  This component changes the player whose details it shows every 20 seconds.
+    * New Feature: Rotating Tech component fully functional.  This component will also change every 20 seconds.
+
+
+ART CREDIT NOTE:  All art assets come from Twilight Imperium: Fourth Edition and belong to Fantasy Flight Games
 
 
 To-Dos:
-Add image icons to resource overview component in place of letters
 Look into browser capture
 Add buttons to display images on front page with sample displays, maybe as modals???? Check IMERSE project for how I made JS modal there.
