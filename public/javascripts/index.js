@@ -75,7 +75,7 @@ window.addEventListener('DOMContentLoaded', event => {
                     updateScoreBoard(data);
                     updateResourceOverview(data);
                     updateLawOverview(data);
-                    loop = setInterval(loopFetch, 3000);
+                    loop = setInterval(loopFetch, 20000);
                 });
             });
     });
