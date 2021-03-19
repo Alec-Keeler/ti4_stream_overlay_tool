@@ -267,12 +267,14 @@ function scoreRelics(data) {
     for (let i = 0; i < players.length; i++) {
         let player = players[i];
         let obs = player.objectives;
-        for (let j = 0; j < obs.length; j++) {
-            let obj = obs[j];
-            if (relics.includes(obj) && obj === "Shard of the Throne") {
-                scoreShard(player);
-            } else if ((relics.includes(obj) && obj === "The Crown of Emphidia")) {
-                scoreCrown(player)
+        if (obs) {
+            for (let j = 0; j < obs.length; j++) {
+                let obj = obs[j];
+                if (relics.includes(obj) && obj === "Shard of the Throne") {
+                    scoreShard(player);
+                } else if ((relics.includes(obj) && obj === "The Crown of Emphidia")) {
+                    scoreCrown(player)
+                }
             }
         }
     }
