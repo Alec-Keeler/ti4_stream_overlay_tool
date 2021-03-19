@@ -39,7 +39,7 @@ let updates = [
     {
         date: "Update 6 (Mar 18, 2021) VERSION 1!",
         change1: "Overlay functionality is now complete!  This is version 1.0!",
-        change2: "Site now makes a fetch call for data every 20 seconds instead of 3.  I used the shorter time for easier testing, which is no longer necessary!  You will notice that it takes 20 seconds for most of the components to populate with data the first time.",
+        change2: "Site now makes a fetch call for data every 20 seconds instead of 3.  I used the shorter time for easier testing, which is no longer necessary!",
         change3: "Fixed several bugs that can occurr early in games before objectives are scored by adding a variety of conditionals.",
         chagne4: "Added 'x3n d0g' to my list of thanks for the help with art assets.",
         change5: "Big thanks to everyone on that list (Found below!) and several others for their help and advice on this project, especially Darrell.",
