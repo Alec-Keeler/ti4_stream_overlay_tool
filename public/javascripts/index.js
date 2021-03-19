@@ -65,6 +65,12 @@ window.addEventListener('DOMContentLoaded', event => {
                     initExtract(data);
                     //deprecated from points-overview-dom
                     // initLaw(data);
+                    updatePointsBoard(data);
+                    standardUpdate(data);
+                    updateTechOverview(data);
+                    updateScoreBoard(data);
+                    updateResourceOverview(data);
+                    updateLawOverview(data);
                     loop = setInterval(loopFetch, 3000);
                 });
             });
