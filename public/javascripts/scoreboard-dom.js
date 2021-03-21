@@ -14,7 +14,7 @@ function checkFaction(faction) {
 function getPlayerInfo(data) {
     let playerInfo = [];
     let playerData = data.players;
-    console.log(data)
+    // console.log(data)
 
     for (let i = 0; i < playerData.length; i++) {
         let color = playerData[i].color

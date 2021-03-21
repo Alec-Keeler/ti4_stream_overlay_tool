@@ -16,10 +16,12 @@ let publicDescriptions = getPublicDescriptions();
 //This function will check if a public objective is stage 1 or 2, and apply a class
 //appropriately
 function determineStage(objective, data) {
-    if (data.objectives["Public Objectives I"].includes(objective)) {
-        return "stage-1"
-    } else {
-        return "stage-2"
+    if (data.objectives["Public Objectives I"]) {
+        if (data.objectives["Public Objectives I"].includes(objective)) {
+            return "stage-1"
+        } else {
+            return "stage-2"
+        }
     }
 }
 
@@ -40,7 +42,11 @@ function clearPublicObjDom(element, index) {
 function classifyPO(objective, index, data) {
     let objClass= objective.split(" ").join("-");
     let publicEl = null
-    let obs1 = data.objectives["Public Objectives I"]
+    // let obs1 = data.objectives["Public Objectives I"]
+    let obs1 = ['dummy'];
+    if (data.objectives["Public Objectives I"]) {
+        obs1 = data.objectives["Public Objectives I"];
+    }
     let obs2 = [];
     let offBoardObs = [];
     let stageClass = determineStage(objective, data);
@@ -50,17 +56,19 @@ function classifyPO(objective, index, data) {
     if (data.objectives.offBoardPublicObjectives) {
         offBoardObs = data.objectives.offBoardPublicObjectives
     }
-    if ((obs1.includes(objective) && offBoardObs.includes(objective)) || obs2.includes(objective) && offBoardObs.includes(objective)) {
-        publicEl = document.getElementById(`public${index}`);
-        clearPublicObjDom(publicEl, index);
-        publicEl.innerHTML = publicDescriptions[objective] + " (IP)"
-    } else {
-        publicEl = document.getElementById(`public${index}`);
-        publicEl.innerHTML = publicDescriptions[objective]
-    }
-    publicEl.classList.add(objClass);
-    publicEl.classList.add(stageClass);
-    publicObs[`public${index}`] = objective
+    // if (obs1) {
+        if ((obs1.includes(objective) && offBoardObs.includes(objective)) || obs2.includes(objective) && offBoardObs.includes(objective)) {
+            publicEl = document.getElementById(`public${index}`);
+            clearPublicObjDom(publicEl, index);
+            publicEl.innerHTML = publicDescriptions[objective] + " (IP)"
+        } else {
+            publicEl = document.getElementById(`public${index}`);
+            publicEl.innerHTML = publicDescriptions[objective]
+        }
+        publicEl.classList.add(objClass);
+        publicEl.classList.add(stageClass);
+        publicObs[`public${index}`] = objective
+    // }
 }
 
 //This function checks if a player has scored any of the stored objectives,

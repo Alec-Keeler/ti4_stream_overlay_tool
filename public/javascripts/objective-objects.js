@@ -70,7 +70,7 @@ export function getPublicDescriptions() {
         'Revolutionize Warfare': '3 UNIT UPGRADES',
         'Manipulate Galactic Law': '16 INFLUENCE',
         'Found a Golden Age': '16 RESOURCES',
-        'Centralize Galatic Trade': '10 TRADE GOODS',
+        'Centralize Galactic Trade': '10 TRADE GOODS',
         'Galvanize the People': '6 COMMAND TOKENS',
         'Conquer the Weak': '1 OPPONENT HOME',
         'Unify the Colonies': '6 PLANET SAME TRAIT',
