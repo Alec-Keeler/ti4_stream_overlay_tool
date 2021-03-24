@@ -3,7 +3,7 @@
 }
 
 .border > div {
-    font-size: 16px;
+    /* font-size: 20px; */
 }
 
 .passed {
@@ -23,32 +23,38 @@
 
 #scoreboard-container {
     background: #061738;
-    width: 750px;
+    width: 800px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 #round {
-    font-size: 25px;
+    font-size: 22px;
     color: white;
     text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
 }
 
 #player-score-container {
     display: grid;
-    width: 750px;
-    height: 130px;
+    width: 800px;
+    height: 100px;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-auto-rows: minmax(65px, 65px);
+    grid-auto-rows: minmax(50px, 50px);
     border: 1px solid black;
     border-radius: 3px;
 }
 
-#player-score-container > div {
+#player-score-container div {
     /* display: grid; */
     /* border: 1px solid black; */
     /* grid-template-columns: 1fr 0.25fr 1fr; */
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.scoreboard-strat-el {
+    margin-left: 5px;
 }
 
 #player-score-container div div {
