@@ -28,6 +28,7 @@ const loopFetch = async () => {
 
             if (response.status === 200) {
                 response.json().then(function (data) {
+                    console.log(data);
                     //call functions to parse data and set variables/innerHTML here
                     savedData = data;
                     updatePointsBoard(data);
@@ -64,6 +65,7 @@ window.addEventListener('DOMContentLoaded', event => {
                     return;
                 };
                 response.json().then(function(data) {
+                    console.log(data);
                     createTechOverview(data);
                     createScoreboard(data);
                     initExtract(data);

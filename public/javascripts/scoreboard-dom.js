@@ -39,21 +39,23 @@ export function createScoreboard(data) {
         let stratCards = playerInfo[i][2];
         let factionName = playerInfo[i][5];
         let parentEl = document.getElementById(`player-score-details-${color}`);
+        let infoEl = document.getElementById(`score-info-${color}`)
         let nameEl = document.createElement('div');
         // nameEl.innerHTML = `${name} as ${factionName}`;
         nameEl.innerHTML = name;
         nameEl.setAttribute('id', `scoreboard-name-${color}`);
         nameEl.setAttribute('class', `scoreboard-name-el-active`);
         let initScoreEl = document.createElement('div');
-        // initScoreEl.innerHTML = playerInfo[i][4];
+        initScoreEl.innerHTML = playerInfo[i][4];
         factionName = checkFaction(factionName);
-        initScoreEl.innerHTML = `${factionName} -- ${playerInfo[i][4]}`
+        initScoreEl.innerHTML = `${factionName} - ${playerInfo[i][4]} -`
+        // initScoreEl.innerHTML = `${factionName} -- ${playerInfo[i][4]} -- ${stratCards[0]}`
         initScoreEl.setAttribute('id', `scoreboard-score-${color}`);
         initScoreEl.setAttribute('class', `scoreboard-score-el`);
         let stratCardOne = stratCards[0];
         let stratCardEl = document.createElement('div');
         if (stratCardOne) {
-            stratCardEl.innerHTML = stratCardOne;
+            stratCardEl.innerHTML = ` ${stratCardOne}`;
         } else {
             stratCardEl.innerHTML = "None"
         }
@@ -62,9 +64,9 @@ export function createScoreboard(data) {
         // }
         stratCardEl.setAttribute('id', `scoreboard-strat-${color}`);
         stratCardEl.setAttribute('class', `scoreboard-strat-el`);
-        parentEl.appendChild(nameEl);
-        parentEl.appendChild(initScoreEl);
-        parentEl.appendChild(stratCardEl);
+        parentEl.insertBefore(nameEl, infoEl);
+        infoEl.appendChild(initScoreEl);
+        infoEl.appendChild(stratCardEl);
     };
 };
 
@@ -115,7 +117,7 @@ export function updateScoreBoard(data) {
         let faction = playerInfo[i][5];
         faction = checkFaction(faction);
         let scoreEl = document.getElementById(`scoreboard-score-${color}`);
-        scoreEl.innerHTML = `${faction} -- ${score}`;
+        scoreEl.innerHTML = `${faction} - ${score} -`;
         let stratCardEl = document.getElementById(`scoreboard-strat-${color}`);
         let usedStratCard = data.players[i].strategyCardsFaceDown;
         if (usedStratCard[0] === stratCardEl.innerHTML) {
@@ -126,7 +128,7 @@ export function updateScoreBoard(data) {
             }
         }
         if (stratCards.length) {
-            stratCardEl.innerHTML = stratCards[0];
+            stratCardEl.innerHTML = ` ${stratCards[0]}`;
         } else {
             stratCardEl.innerHTML = "None";
         }
