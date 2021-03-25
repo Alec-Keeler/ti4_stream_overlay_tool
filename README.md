@@ -59,6 +59,9 @@ Update 6 (Mar 18, 2021)
     * New Feature: Rotating Resource component fully functional.  This component changes the player whose details it shows every 20 seconds.
     * New Feature: Rotating Tech component fully functional.  This component will also change every 20 seconds.
 
+Update 7 (Mar 24, 2021)
+    * Updated the scoreboard component to be slightly wider and slightly less tall, and information is now displayed on two lines per player instead of 3.  Additionally, the scoreboard text is now larger and bold for easier legibility.
+
 
 ART CREDIT NOTE:  All art assets come from Twilight Imperium: Fourth Edition and belong to Fantasy Flight Games
 

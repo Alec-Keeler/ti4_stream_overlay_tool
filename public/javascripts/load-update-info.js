@@ -45,7 +45,11 @@ let updates = [
         change5: "Big thanks to everyone on that list (Found below!) and several others for their help and advice on this project, especially Darrell.",
         change6: "New Feature: Rotating Resource component fully functional.  This component changes the player whose details it shows every 20 seconds.",
         change7: "New Feature: Rotating Tech component fully functional.  This component will also change every 20 seconds.",
-    change8: "Planned additions: Update to front page including images of sample data; Game data collection and aggregation"
+        change8: "Planned additions: Update to front page including images of sample data; Game data collection and aggregation"
+    },
+    {
+        date: "Update 7 (Mar 24, 2021)",
+        change1: "Updated the scoreboard component to be slightly wider and slightly less tall, and information is now displayed on two lines per player instead of 3.  Additionally, the scoreboard text is now larger and bold for easier legibility."
     }
 ]
 
