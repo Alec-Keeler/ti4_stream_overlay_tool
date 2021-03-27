@@ -62,6 +62,10 @@ Update 6 (Mar 18, 2021)
 Update 7 (Mar 24, 2021)
     * Updated the scoreboard component to be slightly wider and slightly less tall, and information is now displayed on two lines per player instead of 3.  Additionally, the scoreboard text is now larger and bold for easier legibility.
 
+Update 8 (Mar 27, 2021)
+    * Updated the scoreboard player positions to reflect their relative positions for spectators.
+    * Fixed issue from previous update causing the strategy cards to no longer indicate when they were exhausted.
+
 
 ART CREDIT NOTE:  All art assets come from Twilight Imperium: Fourth Edition and belong to Fantasy Flight Games
 
