@@ -50,6 +50,11 @@ let updates = [
     {
         date: "Update 7 (Mar 24, 2021)",
         change1: "Updated the scoreboard component to be slightly wider and slightly less tall, and information is now displayed on two lines per player instead of 3.  Additionally, the scoreboard text is now larger and bold for easier legibility."
+    },
+    {
+        date: "Update 8 (Mar 27, 2021)",
+        change1: "Updated the scoreboard player positions to reflect their relative positions for spectators.",
+        change2: "Fixed issue from previous update causing the strategy cards to no longer indicate when they were exhausted."
     }
 ]
 

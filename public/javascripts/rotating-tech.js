@@ -181,7 +181,6 @@ function determinePlayerNum() {
 function getPlayerTechs(player) {
     let techList = player.technologies;
     let parentEl = document.getElementById('rotating-tech-container')
-    console.log(parentEl)
     for (let i = 0; i < techList.length; i++) {
         const tech = techList[i];
         let techEl = document.createElement('div');
