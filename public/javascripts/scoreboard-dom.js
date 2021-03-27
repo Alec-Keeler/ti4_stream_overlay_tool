@@ -120,7 +120,8 @@ export function updateScoreBoard(data) {
         scoreEl.innerHTML = `${faction} - ${score} -`;
         let stratCardEl = document.getElementById(`scoreboard-strat-${color}`);
         let usedStratCard = data.players[i].strategyCardsFaceDown;
-        if (usedStratCard[0] === stratCardEl.innerHTML) {
+        if (` ${usedStratCard[0]}` === stratCardEl.innerHTML) {
+            console.log('should exhaust')
             stratCardEl.classList.add('exhausted');
         } else if (usedStratCard.length === 0) {
             if (stratCardEl.classList.contains('exhausted')) {
@@ -133,6 +134,7 @@ export function updateScoreBoard(data) {
             stratCardEl.innerHTML = "None";
         }
         let playerScoreEl = document.getElementById(`player-score-details-${color}`);
+        // let playerScoreEl = document.getElementById(`scoreboard-strat-${color}`);
         if (activeStatus === true) {
             playerScoreEl.classList.remove('passed');
         } else {

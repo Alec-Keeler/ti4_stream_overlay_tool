@@ -24,7 +24,7 @@ const loopFetch = async () => {
     // })
     const somethingElse = await fetch(`https://ti4-game-data.appspot.com/data?key=${key}`)
         .then(function (response) {
-            console.log(response);
+            // console.log(response);
 
             if (response.status === 200) {
                 response.json().then(function (data) {
@@ -78,6 +78,7 @@ window.addEventListener('DOMContentLoaded', event => {
                     updateResourceOverview(data);
                     updateLawOverview(data);
                     loop = setInterval(loopFetch, 20000);
+                    // loop = setInterval(loopFetch, 3000);
                 });
             });
     });
