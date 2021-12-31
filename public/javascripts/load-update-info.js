@@ -58,7 +58,7 @@ let updates = [
     },
     {
         date: "Update 9 (Dec 31, 2021)",
-        change1: "Increased scoreboard width by 200 pixels and height by 50.  Increased scoreboard font size to 22 from 18.",
+        change1: "Increased scoreboard width by 400 pixels and height by 50.  Increased scoreboard font size to 24 from 18.",
         change2: "Happy New Year!"
     }
 ]
