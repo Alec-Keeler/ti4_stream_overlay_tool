@@ -55,6 +55,11 @@ let updates = [
         date: "Update 8 (Mar 27, 2021)",
         change1: "Updated the scoreboard player positions to reflect their relative positions for spectators.",
         change2: "Fixed issue from previous update causing the strategy cards to no longer indicate when they were exhausted."
+    },
+    {
+        date: "Update 9 (Dec 31, 2021)",
+        change1: "Increased scoreboard width by 200 pixels and height by 50.  Increased scoreboard font size to 22 from 18.",
+        change2: "Happy New Year!"
     }
 ]
 
