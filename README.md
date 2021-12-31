@@ -71,5 +71,3 @@ ART CREDIT NOTE:  All art assets come from Twilight Imperium: Fourth Edition and
 
 
 To-Dos:
-Look into browser capture
-Add buttons to display images on front page with sample displays, maybe as modals???? Check IMERSE project for how I made JS modal there.

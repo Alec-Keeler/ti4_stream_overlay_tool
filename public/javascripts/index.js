@@ -12,6 +12,7 @@ let count = 1
 //variables for testing ^^
 let savedData = null;
 let key;
+let currTimestamp;
 
 //This function is called every time interval to update the data points
 //This will also call functions to update html elements
@@ -29,6 +30,10 @@ const loopFetch = async () => {
             if (response.status === 200) {
                 response.json().then(function (data) {
                     console.log(data);
+                    console.log(data.timestamp)
+                    // if (currTimestamp === data.timestamp) {
+                    //     clearInterval(loop);
+                    // }
                     //call functions to parse data and set variables/innerHTML here
                     savedData = data;
                     updatePointsBoard(data);
