@@ -43,7 +43,7 @@
 
 #player-score-container {
     display: grid;
-    width: 1290px;
+    width: 1200px;
     height: 150px;
     grid-template-columns: 1fr 1fr 1fr;
     grid-auto-rows: minmax(75px, 75px);
