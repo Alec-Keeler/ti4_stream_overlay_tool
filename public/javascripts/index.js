@@ -8,51 +8,63 @@ import { updateRotatingResources } from "./rotating-resources.js"
 import { updateRotatingTech } from "./rotating-tech.js"
 //variables for testing:
 let loop;
-let count = 1
+let count = 1;
 //variables for testing ^^
 let savedData = null;
 let key;
 let currTimestamp;
+let specialKeys = ['buddy'];
 
 //This function is called every time interval to update the data points
 //This will also call functions to update html elements
 const loopFetch = async () => {
-    // const somethingElse = await fetch(`http://ti4-game-data.appspot.com/data?key=${key}`, {
-    //     mode: 'no-cors',
-    //     headers: {
-    //         'If-Modified-Since': 10
-    //     }
-    // })
-    const somethingElse = await fetch(`https://ti4-game-data.appspot.com/data?key=${key}`)
-        .then(function (response) {
-            // console.log(response);
-
-            if (response.status === 200) {
-                response.json().then(function (data) {
-                    console.log(data);
-                    console.log(data.timestamp)
-                    // if (currTimestamp === data.timestamp) {
-                    //     clearInterval(loop);
-                    // }
-                    //call functions to parse data and set variables/innerHTML here
-                    savedData = data;
-                    updatePointsBoard(data);
-                    standardUpdate(data);
-                    updateTechOverview(data);
-                    updateScoreBoard(data);
-                    updateResourceOverview(data);
-                    updateLawOverview(data);
-                    updateRotatingResources(data);
-                    updateRotatingTech(data);
-                });
-            // } else if (response.status === 304) {
-
-            // }
-            } else {
-                console.log("Looks like there was a problem.  Status Code: " + response.status);
-                return;
-            };
-        });
+    if (!specialKeys.includes(key)) {
+        const somethingElse = await fetch(`https://ti4-game-data.appspot.com/data?key=${key}`)
+            .then(function (response) {
+                // console.log(response);
+                if (response.status === 200) {
+                    response.json().then(function (data) {
+                        console.log(data);
+                        console.log(data.timestamp)
+                        savedData = data;
+                        updatePointsBoard(data);
+                        standardUpdate(data);
+                        updateTechOverview(data);
+                        updateScoreBoard(data);
+                        updateResourceOverview(data);
+                        updateLawOverview(data);
+                        updateRotatingResources(data);
+                        updateRotatingTech(data);
+                    });
+                } else {
+                    console.log("Looks like there was a problem.  Status Code: " + response.status);
+                    return;
+                };
+            });
+    } else {
+        const somethingDifferent = await fetch(`https://localhost:8081/data?key=${key}`)
+            .then(function (response) {
+                // console.log(response);
+                if (response.status === 200) {
+                    response.json().then(function (data) {
+                        console.log(data);
+                        console.log(data.timestamp)
+                        savedData = data;
+                        updatePointsBoard(data);
+                        standardUpdate(data);
+                        updateTechOverview(data);
+                        updateScoreBoard(data);
+                        updateResourceOverview(data);
+                        updateLawOverview(data);
+                        updateRotatingResources(data);
+                        updateRotatingTech(data);
+                    });
+                } else {
+                    console.log("Looks like there was a problem.  Status Code: " + response.status);
+                    return;
+                };
+            });
+    }
 };
 
 //This function begins the loop and calls the initial data extractor function
@@ -63,29 +75,49 @@ window.addEventListener('DOMContentLoaded', event => {
         // console.log(e.target.value);
         key = e.target.value;
 
-        const startFetch = await fetch(`https://ti4-game-data.appspot.com/data?key=${key}`)
-            .then(function(response) {
-                if (response.status !== 200) {
-                    console.log("Looks like there was a problem.  Status Code: " + response.status);
-                    return;
-                };
-                response.json().then(function(data) {
-                    console.log(data);
-                    createTechOverview(data);
-                    createScoreboard(data);
-                    initExtract(data);
-                    //deprecated from points-overview-dom
-                    // initLaw(data);
-                    updatePointsBoard(data);
-                    standardUpdate(data);
-                    updateTechOverview(data);
-                    updateScoreBoard(data);
-                    updateResourceOverview(data);
-                    updateLawOverview(data);
-                    loop = setInterval(loopFetch, 20000);
-                    // loop = setInterval(loopFetch, 3000);
+        if (!specialKeys.includes(key)) {
+            const startFetch = await fetch(`https://ti4-game-data.appspot.com/data?key=${key}`)
+                .then(function(response) {
+                    if (response.status !== 200) {
+                        console.log("Looks like there was a problem.  Status Code: " + response.status);
+                        return;
+                    };
+                    response.json().then(function(data) {
+                        console.log(data);
+                        createTechOverview(data);
+                        createScoreboard(data);
+                        initExtract(data);
+                        updatePointsBoard(data);
+                        standardUpdate(data);
+                        updateTechOverview(data);
+                        updateScoreBoard(data);
+                        updateResourceOverview(data);
+                        updateLawOverview(data);
+                        loop = setInterval(loopFetch, 20000);
+                    });
                 });
-            });
+        } else {
+            const startSpecialFetch = await fetch(`https://localhost:8081/data?key=${key}`)
+                .then(function (response) {
+                    if (response.status !== 200) {
+                        console.log("Looks like there was a problem.  Status Code: " + response.status);
+                        return;
+                    };
+                    response.json().then(function (data) {
+                        console.log(data);
+                        createTechOverview(data);
+                        createScoreboard(data);
+                        initExtract(data);
+                        updatePointsBoard(data);
+                        standardUpdate(data);
+                        updateTechOverview(data);
+                        updateScoreBoard(data);
+                        updateResourceOverview(data);
+                        updateLawOverview(data);
+                        loop = setInterval(loopFetch, 5000);
+                    });
+                });
+        }
     });
 
     //this button stops the collecting of data
